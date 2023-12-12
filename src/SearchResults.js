@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './SearchResults.css';
 import headerLogo from "./assets/header-logo.svg";
 
 const SearchResults = () => {
+
+    const AnimatedCounter = ({ endValue }) => {
+        const [count, setCount] = useState(0);
+        const duration = 1000; // 5 seconds duration
+    
+        useEffect(() => {
+            // Calculate interval duration for each increment
+            const intervalDuration = duration / endValue;
+    
+            const timer = setInterval(() => {
+                setCount((prevCount) => {
+                    if (prevCount < endValue) {
+                        return prevCount + 1;
+                    } else {
+                        clearInterval(timer);
+                        return prevCount;
+                    }
+                });
+            }, intervalDuration);
+    
+            return () => clearInterval(timer); // Cleanup on unmount
+        }, [endValue]);
+    
+        return <p className="card-value-txt">{count}</p>;
+    };
+
   const { searchTerm } = useParams();
 
   // Implement your search results display logic here
@@ -145,7 +171,7 @@ const SearchResults = () => {
                         <p class="card-header-txt-divided">Parent Domains</p>
                     </div>
                     <div class="card-value">
-                        <p class="card-value-txt-divided">139</p>
+                    <AnimatedCounter endValue={139} duration={1000} />
                     </div>
                     <div class="card-separator-line">
 
@@ -154,7 +180,7 @@ const SearchResults = () => {
                         <p class="card-header-txt-divided">Sub Domains</p>
                     </div>
                     <div class="card-value">
-                        <p class="card-value-txt-divided">39</p>
+                    <AnimatedCounter endValue={39} duration={1000} />
                     </div>
                 </div>
                 <div class="content-card">
@@ -165,7 +191,7 @@ const SearchResults = () => {
 
                     </div>
                     <div class="card-value">
-                        <p class="card-value-txt">89</p>
+                    <AnimatedCounter endValue={329} duration={1000} />
                     </div>
                 </div>
                 <div class="content-card">
@@ -176,7 +202,7 @@ const SearchResults = () => {
 
                     </div>
                     <div class="card-value">
-                        <p class="card-value-txt">54</p>
+                    <AnimatedCounter endValue={254} duration={1000} />
                     </div>
                 </div>
                 <div class="content-card">
@@ -187,7 +213,7 @@ const SearchResults = () => {
 
                     </div>
                     <div class="card-value">
-                        <p class="card-value-txt">54</p>
+                    <AnimatedCounter endValue={289} duration={1000} />
                     </div>
                 </div>
                 <div class="content-card">
@@ -198,7 +224,7 @@ const SearchResults = () => {
 
                     </div>
                     <div class="card-value">
-                        <p class="card-value-txt">54</p>
+                    <AnimatedCounter endValue={54} duration={1000} />
                     </div>
                 </div>
                 <div class="content-card">
@@ -209,7 +235,7 @@ const SearchResults = () => {
 
                     </div>
                     <div class="card-value">
-                        <p class="card-value-txt">54</p>
+                    <AnimatedCounter endValue={372} duration={1000} />
                     </div>
                 </div>
             </div>
@@ -222,15 +248,13 @@ const SearchResults = () => {
                 <div class="ti-table-contents-container">
                     <table class="ti-dns-table">
                         <thead class="dns-table-col-head">
-                        <tr style={{ borderBottom: '10px solid #555' }}>
+                        <tr className='ti-table-header-border'>
                                 <th>S. No</th>
                                 <th>Name</th>
                                 <th>Record</th>
                                 <th>Fix Recommendation</th>
                             </tr>
                         </thead>
-                        <div class="ti-table-separator-line">
-                        </div>
                         <tbody>
                             <tr class="dns-table-body-txt">
                                 <td>1</td>
@@ -278,7 +302,6 @@ const SearchResults = () => {
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
     </div>

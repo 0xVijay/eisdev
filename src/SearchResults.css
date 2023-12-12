@@ -232,6 +232,8 @@
 
 .card-value-txt-divided {
     margin-top: 5px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
     margin-bottom: 5px;
     color: #690CDB;
     font-size: 24px;
@@ -315,4 +317,20 @@ font-size: 11px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+}
+
+.ti-table-header-border{
+    border-bottom: 10px solid #555;
+}
+
+.ti-table-header-separator-line{
+    width: 100%;
+    height: 1px;
+    margin-left: -1%;
+    background-color: #737791;
+}
+
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
