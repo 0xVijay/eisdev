@@ -18,10 +18,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Search />} />
         <Route path="/search-results/:searchTerm" element={<SearchResults />} />
+        <Route path="/dashboard" element={<StatisticsWikipediaRow />} />
       </Routes>
-      <div style={{ marginBottom: "50px" }}>
-        <StatisticsWikipediaRow />
-      </div>
     </Router>
   );
 };

@@ -7,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Grow from '@mui/material/Grow';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Grow ref={ref} {...props} />;
@@ -115,7 +116,7 @@ const MUITable = () => {
 
   return (
     <ThemeProvider theme={getMuiTheme()}>
-      <div style={{ maxWidth: '100%', borderRadius: '8px' }}>
+      <div className="mui-datatable-custom-container" style={{ maxWidth: '100%', borderRadius: '8px' }}>
         <MUIDataTable
           columns={columns}
           data={data}
@@ -124,13 +125,15 @@ const MUITable = () => {
         />
       </div>
       {/* Dialog component to show selected row data */}
-      <Dialog TransitionComponent={Transition} // Use Grow transition component
+      <Dialog open={dialogOpen}
+        onClose={handleCloseDialog} TransitionComponent={Transition} // Use Grow transition component
         // Add the sx prop to style the Dialog component
         sx={{
           '& .MuiDialog-paper': { // Target the paper element inside the dialog
-            width: '700px', // Set the width of the dialog
+            width: '500px', // Set the width of the dialog
             maxWidth: '700px', // Ensure it doesn't exceed the width
-            height: '400px', // Set the height of the dialog
+            // minHeight: '300px',
+            // height:'fit-content' // Set the height of the dialog
           },
         }}>
         <DialogTitle>Fix Recommendation</DialogTitle>
@@ -138,7 +141,7 @@ const MUITable = () => {
           <Card class='popup-card'>
             <CardContent>
                 {console.log(selectedRowData)}
-              <Typography variant="body1">{selectedRowData.recomdesc}</Typography>
+              <Typography variant="body1" marginLeft="-13px">{selectedRowData.recomdesc}</Typography>
             </CardContent>
           </Card>
         </DialogContent>
