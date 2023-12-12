@@ -1,9 +1,10 @@
 // App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Search from './Search';
-import SearchResults from './SearchResults';
-import { Helmet } from 'react-helmet';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Search from "./Search";
+import SearchResults from "./SearchResults";
+import { Helmet } from "react-helmet";
+import StatisticsWikipediaRow from "./components/StatisticsWikipediaRow";
 
 const App = () => {
   return (
@@ -18,6 +19,9 @@ const App = () => {
         <Route path="/" element={<Search />} />
         <Route path="/search-results/:searchTerm" element={<SearchResults />} />
       </Routes>
+      <div style={{ marginBottom: "50px" }}>
+        <StatisticsWikipediaRow />
+      </div>
     </Router>
   );
 };
