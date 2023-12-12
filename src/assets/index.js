@@ -1,0 +1,9 @@
+export { default as icon_computer_wiki } from "./icon_computer_wiki.svg";
+export { default as icon_wiki_lock } from "./icon_wiki_lock.svg";
+export { default as icon_wiki_flag } from "./icon_wiki_flag.svg";
+export { default as icon_wiki_authority } from "./icon_wiki_authority.svg";
+export { default as icon_wiki_cost } from "./icon_wiki_cost.svg";
+export { default as icon_wiki_domain } from "./icon_wiki_domain.svg";
+export { default as icon_wiki_register } from "./icon_wiki_register.svg";
+export { default as icon_wiki_green_arrow } from "./icon_wiki_green_arrow.svg";
+export { default as icon_wiki_red_arrow } from "./icon_wiki_red_arrow.svg";
