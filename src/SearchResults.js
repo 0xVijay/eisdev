@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './SearchResults.css';
 import headerLogo from "./assets/header-logo.svg";
+import AreaChartComponent from './AreaChartComponent';
 
 const SearchResults = () => {
 
@@ -302,6 +303,10 @@ const SearchResults = () => {
                     </table>
                 </div>
             </div>
+
+            <div class="chart-container">
+                    <AreaChartComponent />
+                </div>
         </div>
     </div>
     </div>
