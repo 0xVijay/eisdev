@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './SearchResults.css';
 import headerLogo from "./assets/header-logo.svg";
-import AreaChartComponent from './AreaChartComponent';
+import MuiTableComponent from './MuiTableComponent';
 
 const SearchResults = () => {
 
@@ -241,7 +241,7 @@ const SearchResults = () => {
                 </div>
             </div>
             <div class="ti-table">
-                <div class="ti-table-header">
+                {/* <div class="ti-table-header">
                     <p class="ti-table-header-txt">DNS Vulnerability</p>
                 </div>
                 <div class="ti-table-separator-line">
@@ -301,12 +301,9 @@ const SearchResults = () => {
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> */}
+                <MuiTableComponent />
             </div>
-
-            <div class="chart-container">
-                    <AreaChartComponent />
-                </div>
         </div>
     </div>
     </div>

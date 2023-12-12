@@ -3,9 +3,14 @@ import Chart from 'chart.js/auto';
 
 const AreaChartComponent = () => {
     const chartRef = useRef(null);
+    const chartInstance = useRef(null); // Add this line to keep track of the chart instance
 
     useEffect(() => {
         if (chartRef.current) {
+            if (chartInstance.current) {
+                chartInstance.current.destroy(); // Destroy the previous instance if it exists
+            }
+
             const ctx = chartRef.current.getContext('2d');
             const gradient = ctx.createLinearGradient(0, 0, 0, 200);
             gradient.addColorStop(0, 'rgba(75, 192, 192, 0.7)');
@@ -23,7 +28,8 @@ const AreaChartComponent = () => {
                 }]
             };
 
-            new Chart(ctx, {
+            // Store the chart instance
+            chartInstance.current = new Chart(ctx, {
                 type: 'line',
                 data: data,
                 options: {
@@ -38,11 +44,9 @@ const AreaChartComponent = () => {
                 }
             });
         }
-    }, []);
+    }, []); // Ensure this runs only once by passing an empty dependency array
 
-    return (
-        <canvas ref={chartRef} width="400" height="200"></canvas>
-    );
+    return <canvas ref={chartRef} width="400" height="200"></canvas>;
 };
 
 export default AreaChartComponent;
