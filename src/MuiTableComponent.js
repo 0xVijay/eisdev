@@ -8,6 +8,10 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Grow ref={ref} {...props} />;
+  });
+
 const MUITable = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedRowData, setSelectedRowData] = useState({});
@@ -19,48 +23,56 @@ const MUITable = () => {
     { label: 'Fix Recommendation', name: 'fixrecommendation' }
   ];
 
-  data = [
+  const data = [
     {
       sno: 1,
       name: "SPF Record Missing",
       record: "A",
-      fixrecommendation: "Recommendation"
+      fixrecommendation: "Recommendation 1",
+      recomdesc: "Recommendation Description 1"
+
     },
     {
       sno: 2,
       name: "SPF Record Missing",
       record: "SPF",
-      fixrecommendation: "Recommendation"
+      fixrecommendation: "Recommendation 2",
+      recomdesc: "Recommendation Description 2"
     },
     {
       sno: 3,
       name: "SPF Record Missing",
       record: "SPF",
-      fixrecommendation: "Recommendation"
+      fixrecommendation: "Recommendation 3",
+      recomdesc: "Recommendation Description 3"
     },
     {
       sno: 4,
       name: "SPF Record Missing",
       record: "MX",
-      fixrecommendation: "Recommendation"
+      fixrecommendation: "Recommendation 4",
+      recomdesc: "Recommendation Description 4"
     },
     {
       sno: 5,
       name: "SPF Record Missing",
       record: "MX",
-      fixrecommendation: "Recommendation"
+      fixrecommendation: "Recommendation 5",
+      recomdesc: "Recommendation Description 5"
     },
     {
       sno: 6,
       name: "SPF Record Missing",
       record: "AA",
-      fixrecommendation: "Recommendation"
+      fixrecommendation: "Recommendation 6",
+      recomdesc: "Recommendation Description 6"
     },
     {
       sno: 7,
       name: "SPF Record Missing",
       record: "MX",
-      fixrecommendation: "Recommendation"
+      fixrecommendation: "Recommendation 7",
+      recomdesc: "Recommendation Description 7"
     }
   ];
 
@@ -89,11 +101,9 @@ const MUITable = () => {
         return false;
       },
       onRowClick: (rowData) => {
+        console.log(data[rowData[0]-1].recomdesc);
         setSelectedRowData({
-          sno: rowData[0],
-          name: rowData[1],
-          record: rowData[2],
-          fixrecommendation: rowData[3]
+            recomdesc:data[rowData[0]-1].recomdesc
         });
         setDialogOpen(true); // Open the dialog when a row is clicked
       },
@@ -114,15 +124,21 @@ const MUITable = () => {
         />
       </div>
       {/* Dialog component to show selected row data */}
-      <Dialog open={dialogOpen} onClose={handleCloseDialog}>
-        <DialogTitle>Row Details</DialogTitle>
+      <Dialog TransitionComponent={Transition} // Use Grow transition component
+        // Add the sx prop to style the Dialog component
+        sx={{
+          '& .MuiDialog-paper': { // Target the paper element inside the dialog
+            width: '700px', // Set the width of the dialog
+            maxWidth: '700px', // Ensure it doesn't exceed the width
+            height: '400px', // Set the height of the dialog
+          },
+        }}>
+        <DialogTitle>Fix Recommendation</DialogTitle>
         <DialogContent>
-          <Card>
+          <Card class='popup-card'>
             <CardContent>
-              <Typography variant="h6">S. No: {selectedRowData.sno}</Typography>
-              <Typography variant="body1">Name: {selectedRowData.name}</Typography>
-              <Typography variant="body1">Record: {selectedRowData.record}</Typography>
-              <Typography variant="body1">Fix Recommendation: {selectedRowData.fixrecommendation}</Typography>
+                {console.log(selectedRowData)}
+              <Typography variant="body1">{selectedRowData.recomdesc}</Typography>
             </CardContent>
           </Card>
         </DialogContent>
