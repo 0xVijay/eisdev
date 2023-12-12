@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Search.css';
+import axios from 'axios';
 import searchIcon from './assets/searchbar-search-icon.png';
 import avxIcon from './assets/header-logo.svg';
 import rightIcon from './assets/arrow-right.svg';
@@ -24,11 +25,18 @@ const SearchContainer = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const [apiResponse, setApiResponse] = useState(null);
 
-  const handleSearch = () => {
-    // Implement your search logic here
-    // For example, you might want to navigate to a search results page
-    navigate(`/search-results/${searchTerm}`);
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get('https://api.publicapis.org/entries');
+      setApiResponse(response.data);
+      console.log(response.data)
+      navigate(`/search-results/${searchTerm}`, { state: { apiData: response.data } });
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+      // Handle error
+    }
   };
 
     return (
