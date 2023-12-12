@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './SearchResults.css';
 import headerLogo from "./assets/header-logo.svg";
+import headerUser from "./assets/Header-namegroup.png";
+import gridAlt from "./assets/grid-alt.svg";
 import MuiTableComponent from './MuiTableComponent';
 
 const SearchResults = () => {
@@ -45,111 +47,111 @@ const SearchResults = () => {
             <div class="threat-sidebar">
                 <div class="logo-container">
                     <div class="threat-logo">
-                        <img src={headerLogo} alt="Threat Header Logo" />
+                        <img class="header-logo-srch-rslts" src={headerLogo} alt="Threat Header Logo" />
                     </div>
                 </div>
                 <div class="threat-sidebar-menu">
-                    <p>Menu</p>
-                    {/* <div class="dropdown">
+                    <p class="menu-txt">Menu</p>
+                    <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo" />
-                            <select disabled class="dropdown-select">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo" />
+                            <select class="dropdown-select">
                                 <option value="" selected class="dr-option-text">M</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                                <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                                <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo" />
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">U</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo"/>
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">L</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo"/>
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">T</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo" />
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">I</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo" />
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">V</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo" />
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">E</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo" />
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">R</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo" />
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">S</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
                     </div>
                     <div class="dropdown">
                         <div class="option-container">
-                            <img src="./assets/grid-alt.svg" alt="Grid alt" class="drop-gridlogo">
+                            <img src={gridAlt} alt="Grid alt" class="drop-gridlogo" />
                             <select class="dropdown-select">
                                 <option value="" disabled selected class="dr-option-text">E</option>
-                                <!-- <option value="option1">Option 1.1</option>
-                        <option value="option2">Option 1.2</option> -->
+                                {/* <!-- <option value="option1">Option 1.1</option>
+                        <option value="option2">Option 1.2</option> --> */}
                             </select>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,13 +161,17 @@ const SearchResults = () => {
                 <div class="ti-header-txt">
                     <p>Threat Intelligence</p>
                 </div>
+                <div><img class='header-image-group' src={headerUser} alt="Header User">
+                </img></div>
             </div>
         </div>
 
         <div class="ti-cards-container">
             <div class="domain-header">
                 <p class="domain-header-txt">Domain Name: {searchTerm}</p>
+                <p class="domain-header-org-txt">Organization Name</p>
             </div>
+
             <div class="card-container-1">
                 <div class="content-card-divided">
                     <div class="card-header">

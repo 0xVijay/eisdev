@@ -33,8 +33,9 @@
 .threat-sidebar-menu {
     display: flex;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-right: 20px;
+    margin-bottom: 20px;
     color: #8A99AF;
     font-size: 14px;
     font-family: Inter;
@@ -43,6 +44,14 @@
     line-height: 20px;
     word-wrap: break-word;
     flex-direction: column;
+}
+
+.menu-txt{
+    padding-bottom: 20px;
+}
+
+.header-logo-srch-rslts{
+    height: 30px;
 }
 
 .dropdown {
@@ -123,6 +132,8 @@
 
 .ti-header-txt {
     color: #151D48;
+    margin-top: 15px;
+    margin-bottom: 15px;
     font-size: 25.76px;
     font-family: Inter;
     font-weight: 700;
@@ -158,13 +169,26 @@
 }
 
 .domain-header-txt {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
     color: #151D48;
-    font-size: 25.76px;
+    font-size: 23px;
     font-family: Inter;
     font-weight: 700;
     word-wrap: break-word;
+}
+
+.domain-header-org-txt{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #151D48;
+    font-size: 23px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word;
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
 }
 
 .domain-name-txt {
@@ -332,4 +356,12 @@ line-height: normal;
 p{
     margin-block-start: 0em;
     margin-block-end: 0em;
+}
+
+.header-image-group{
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-top: 10px;
+    padding-right: 10px;
 }
