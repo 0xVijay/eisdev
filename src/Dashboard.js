@@ -24,9 +24,9 @@ const Dashboard = () => {
         <div style={{ marginTop: "2%" }} className="stat-card-container">
           <StatCard3 />
         </div>
-        <div className='dash-chart-container'>
+        {/* <div className='dash-chart-container'>
                     <AreaChart/>
-                </div>
+                </div> */}
         {/* <div className='card-container-1 card-container-2-dashboard'>
         <div className='card-2-dash'>
             

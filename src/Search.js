@@ -38,7 +38,7 @@ const SearchContainer = () => {
               const response = await axios.get('https://api.publicapis.org/entries');
               setApiResponse(response.data);
               console.log(response.data);
-              navigate(`/dashboard/${searchTerm}`, { state: { apiData: response.data } });
+              navigate(`/search-results/${searchTerm}`, { state: { apiData: response.data } });
           } catch (error) {
               console.error('Error fetching data: ', error);
           }
