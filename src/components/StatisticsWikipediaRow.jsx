@@ -12,8 +12,9 @@ import {
 } from "../assets";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
-import '../Dashboard.css'
-import { useNavigate } from 'react-router-dom';
+import "../Dashboard.css";
+import { useNavigate } from "react-router-dom";
+import { generateColor } from "../color";
 
 export const StyledText = styled.p`
   color: ${(props) =>
@@ -103,8 +104,8 @@ const domainData = [
   },
 ];
 
-const StatisticsWikipediaRow = () => {
-
+const StatisticsWikipediaRow = (props) => {
+  const response = props.data.response;
   const navigate = useNavigate();
 
   const handleClick = (category) => {
@@ -112,11 +113,11 @@ const StatisticsWikipediaRow = () => {
       case 'Phishing Domain':
         navigate('/phishing-monitoring');
         break;
-      case 'Certificate Impersonation':
-        navigate('/certspace');
+      case "Certificate Space":
+        navigate("/certspace", {response});
         break;
-      case 'DNS Vulnerability':
-        navigate('/search-results');
+      case "Phishing Monitoring":
+        navigate("/search-results", {response});
         break;
       default:
         // Optional: handle default case
@@ -155,7 +156,9 @@ const StatisticsWikipediaRow = () => {
             }}
             className="d-flex flex-column justify-content-between"
           >
-            <StyledText margin={"0px 0px 18px 0px"}>wikipedia.org</StyledText>
+            <StyledText margin={"0px 0px 18px 0px"}>
+              {response.domainName}
+            </StyledText>
             <div
               className="d-flex align-items-center justify-content-between"
               style={{ marginBlockEnd: "34px" }}
@@ -169,11 +172,17 @@ const StatisticsWikipediaRow = () => {
                 96.4
                 <span style={{ fontSize: "31px" }}>/100</span>
               </StyledText> */}
-              <LineSeparator height="100px"/>
+              <LineSeparator height="100px" />
               <div className="dash-card-1-col-1">
-                  <div className="dash-card-1-col-1-txt-org">AppViewX Inc</div>
-                  <div className="dash-card-1-col-1-txt">priyeshkuarfaefafarframar@gmail.com</div>
-                  <div className="dash-card-1-col-1-txt">Anand Purushothaman</div>
+                <div className="dash-card-1-col-1-txt-org">
+                  {response.domainInfo.orgName}
+                </div>
+                <div className="dash-card-1-col-1-txt">
+                  {response.domainInfo.email}
+                </div>
+                <div className="dash-card-1-col-1-txt">
+                  {response.domainInfo.ownerName}
+                </div>
               </div>
             </div>
             <div className="d-flex align-items-center justify-content-start gap-2">
@@ -207,7 +216,7 @@ const StatisticsWikipediaRow = () => {
             }}
           >
             <div className="d-flex justify-content-center align-items-between gap-1">
-              {cardData.map((data, index) => (
+              {response.card.map((data, index) => (
                 <div
                   key={index}
                   style={{ width: data.width }}
@@ -216,30 +225,29 @@ const StatisticsWikipediaRow = () => {
                   <div className="d-flex flex-column align-items-center justify-content-center">
                     <StyledText
                       fontSize={"18px"}
-                      color={data.headerColor}
+                      color={cardData[index].headerColor}
                       textAlign={"center"}
                     >
-                      {formatToK(data.value)}
+                      {data.count}
                     </StyledText>
                     <StyledText
                       fontSize={"8px"}
                       color={"#737791"}
                       margin={" 0 0 23px 0"}
                     >
-                      {data.category}
+                      {data.name}
                     </StyledText>
                   </div>
-                  <StyledCard 
-
-                  className="gradient-cards"
-                  onClick={() => handleClick(data.category)}
-                    bg={`linear-gradient(180deg, rgba(${data.gradientColor}, 0.00) 0%, rgb(${data.gradientColor}) 100%)`}
+                  <StyledCard
+                    className="gradient-cards"
+                    onClick={() => handleClick(data.name)}
+                    bg={`linear-gradient(180deg, rgba(${cardData[index].gradientColor}, 0.00) 0%, rgb(${cardData[index].gradientColor}) 100%)`}
                     br="3px"
                     padding="20px"
                     textAlign="center"
                     height="180px"
                     style={{
-                      cursor:"pointer",
+                      cursor: "pointer",
                       display: "flex",
                       flexBasis: "Column",
                       alignItems: "end",
@@ -253,13 +261,12 @@ const StatisticsWikipediaRow = () => {
                         textAlign={"center"}
                         fontWeight={"400"}
                       >
-                        <p>{data.domain1}</p>
-                        <p>{data.domain1}</p>
-                        <p>{data.domain1}</p>
+                        {
+                          data.values.map((domain) => (
+                            <p>{domain}</p>
+                          ))
+                        }
                       </StyledText>
-                      {/* <StyledText fontSize={"5px"} color={"#FFF"}>
-                        {data.category}
-                      </StyledText> */}
                     </div>
                   </StyledCard>
                 </div>
@@ -269,7 +276,7 @@ const StatisticsWikipediaRow = () => {
         </Col>
         <Col lg={4} className="">
           <Row className="m-0 p-0">
-            {domainData.map((data, index) => (
+            {response.domainData.map((data, index) => (
               <Col lg={6} className="px-1 mb-2" key={index}>
                 <StyledCard>
                   <StyledText color="#151D48" fontSize={"11px"}>
@@ -280,7 +287,7 @@ const StatisticsWikipediaRow = () => {
                   </StyledText>
                   <div className="d-flex justify-content-end">
                     <img
-                      src={data.img}
+                      src={domainData[index].img}
                       alt="icon_wiki_domain"
                       className="img-fluid"
                     />
@@ -293,12 +300,15 @@ const StatisticsWikipediaRow = () => {
         <div className="d-flex justify-content-between mt-1">
           <StyledText fontSize={"12px"} color={"#737791"}>
             Date: &nbsp;
-            <span style={{ color: "#151D48" }}>
-              {getCurrentDateIST()}
-            </span>
+            <span style={{ color: "#151D48" }}>{getCurrentDateIST()}</span>
           </StyledText>
           <div className="d-flex align-items-center gap-3">
-            <StyledText fontSize={"12px"} color={"#151D48"} cursor={"pointer"} onClick={() => handleClick(cardData[1].category)}>
+            <StyledText
+              fontSize={"12px"}
+              color={"#151D48"}
+              cursor={"pointer"}
+              onClick={() => handleClick('Certificate Space')}
+            >
               Certificate Space&nbsp;
               <span style={{ color: "#690CDB" }}>
                 {/* 7.9 */}
@@ -309,7 +319,12 @@ const StatisticsWikipediaRow = () => {
                 />
               </span>
             </StyledText>
-            <StyledText fontSize={"12px"} color={"#151D48"} cursor={"pointer"} onClick={() => handleClick(cardData[2].category)}>
+            <StyledText
+              fontSize={"12px"}
+              color={"#151D48"}
+              cursor={"pointer"}
+              onClick={() => handleClick('Domain Space')}
+            >
               Domain Space &nbsp;
               <span style={{ color: "#690CDB" }}>
                 {/* 12.28 */}
@@ -320,7 +335,12 @@ const StatisticsWikipediaRow = () => {
                 />
               </span>
             </StyledText>
-            <StyledText fontSize={"12px"} color={"#151D48"} cursor={"pointer"} onClick={() => handleClick(cardData[0].category)}>
+            <StyledText
+              fontSize={"12px"}
+              color={"#151D48"}
+              cursor={"pointer"}
+              onClick={() => handleClick('Phishing Monitoring')}
+            >
               Phishing Monitoring &nbsp;
               <span style={{ color: "#690CDB" }}>
                 {/* 0.4 */}

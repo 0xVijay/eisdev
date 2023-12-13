@@ -2,19 +2,28 @@ import React, { useRef, useEffect, useState } from "react";
 import Chart from "chart.js/auto";
 import './Dashboard.css';
 
-const AreaChartComponent = () => {
+const AreaChartComponent = (props) => {
+  // Dummy data for different chart options
+  const dataSets = {
+    'Issue': [],
+    'Expiry': [],
+    'DNS': [],
+  }
+  const labels = [];
+  props.data.map((d) => {
+    dataSets.Issue.push(d.Issue);
+    dataSets.Expiry.push(d.Expiry);
+    dataSets.DNS.push(d.DNS);
+    labels.push(d.name)
+    return d;
+  })
+  console.log('AreaChartComponent', dataSets);
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const [chartOption, setChartOption] = useState('Issue');
 
   const chartOptions = ['Issue', 'Expiry', 'DNS'];
-
-  // Dummy data for different chart options
-  const dataSets = {
-    'Issue': [10, 30, 50, 60, 50, 40],
-    'Expiry': [40, 20, 80, 40, 10, 10],
-    'DNS': [75, 65, 85, 55, 25, 75],
-  };
+;
 
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
@@ -29,7 +38,7 @@ const AreaChartComponent = () => {
     const bufferValue = 100; // For example, adds 10 to the max value
   
     const data = {
-      labels: ["GoDaddy.com", "Entrust.Inc", "DigiCert.Inc", "Amazon", "Let's Encrypt", "GlobalSign nv-sa"],
+      labels: labels,
       datasets: [
         {
           label: "Certificate Transparency",

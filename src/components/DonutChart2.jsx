@@ -38,25 +38,9 @@ import {
   Label,
 } from "recharts";
 
-const DonutChart2 = () => {
-  const data = [
-    { name: "A", value: 10121, bg: "#B57AFD" },
-    { name: "C Name", value: 2110, bg: "#E3D5F3" },
-    { name: "SOA", value: 2127, bg: "#33115E" },
-    { name: "AAA", value: 5125, bg: "#CBCBCB" },
-    { name: "MX", value: 2127, bg: "#690CDB" },
-    { name: "TXT", value: 1238, bg: "#4B4B4B" },
-  ];
-
-  const formatToK = (value) => {
-    if (value < 1000) {
-        return value.toString();
-    } else {
-        return (value / 1000).toFixed(1) + 'K';
-    }
-};
-  
-  const totalDNS = 52524;
+const DonutChart2 = (props) => {
+  const data = props.data;
+  const colors = props.colors;
 
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
@@ -73,7 +57,7 @@ const DonutChart2 = () => {
             blendStroke
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.bg} />
+              <Cell key={`cell-${index}`} fill={colors[index]} />
             ))}
             <Label
               value={formatToK(totalDNS)}

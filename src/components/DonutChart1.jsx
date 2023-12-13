@@ -46,16 +46,9 @@ const formatToK = (value) => {
   }
 };
 
-const DonutChart1 = () => {
-  const data = [
-    { name: "Active", value: 6215, bg: "#A264EF" },
-    { name: "Unknown", value: 4125, bg: "#690CDB" },
-    { name: "Expired Cert", value: 3124, bg: "#2E0067" },
-    { name: "Impersonation", value: 1122, bg: "#DBDBDB" },
-  ];
-
-  const totalCerts = 12323;
-
+const DonutChart1 = (props) => {
+  const data = props.data;
+  const colors = props.colors;
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
       <ResponsiveContainer>
@@ -71,7 +64,7 @@ const DonutChart1 = () => {
             paddingAngle={0}
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.bg} />
+              <Cell key={`cell-${index}`} fill={colors[index]} />
             ))}
             <Label
               value={formatToK(totalCerts)}

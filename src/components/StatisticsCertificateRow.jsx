@@ -8,22 +8,11 @@ import {
 import DonutChart1 from "./DonutChart1.jsx";
 import DonutChart2 from "./DonutChart2.jsx";
 import MUITable from "../MuiTableComponent.js";
+import { generateColor } from "../color";
 
-const StatisticsCertificateRow = () => {
-  const data1 = [
-    { name: "Active 1", value: 65212, bg: "#A264EF" },
-    { name: "Unknown", value: 4215, bg: "#690CDB" },
-    { name: "Expired Cert", value: 3412, bg: "#2E0067" },
-    { name: "Impersonation", value: 1212, bg: "#DBDBDB" },
-  ];
-  const data2 = [
-    { name: "A", value: 10211, bg: "#B57AFD" },
-    { name: "C Name", value: 1012, bg: "#E3D5F3" },
-    { name: "SOA", value: 12127, bg: "#33115E" },
-    { name: "AAA", value: 5215, bg: "#CBCBCB" },
-    { name: "MX", value: 1221, bg: "#690CDB" },
-    { name: "TXT", value: 8222, bg: "#4B4B4B" },
-  ];
+const StatisticsCertificateRow = (props) => {
+  const response = props.data.response;
+ const colors = generateColor('#690CDB', '#b57afd', 10);
 
   return (
     <Container>
@@ -42,16 +31,16 @@ const StatisticsCertificateRow = () => {
             >
               Certificate Space
             </StyledText>
-            <DonutChart1 />
+            <DonutChart1 data={response.certificateSpace} colors={colors} />
             <Row>
-              {data1.map((entry, index) => (
+              {response.certificateSpace.map((entry, index) => (
                 <Col lg={6} className="d-flex align-items-center gap-1">
                   <div
                     style={{
                       width: "7px",
                       height: "7px",
                       borderRadius: "50%",
-                      backgroundColor: entry.bg,
+                      backgroundColor: colors[index]
                     }}
                   ></div>
                   <StyledText fontSize={"10px"}>{entry.name}</StyledText>
@@ -87,16 +76,16 @@ const StatisticsCertificateRow = () => {
             >
               DNS Records
             </StyledText>
-            <DonutChart2 />
+            <DonutChart2 data={response.dnsRecords} colors={colors} />
             <Row>
-              {data2.map((entry, index) => (
+              {response.dnsRecords.map((entry, index) => (
                 <Col lg={4} className="d-flex align-items-center gap-1">
                   <div
                     style={{
                       width: "7px",
                       height: "7px",
                       borderRadius: "50%",
-                      backgroundColor: entry.bg,
+                      backgroundColor: colors[index]
                     }}
                   ></div>
                   <StyledText fontSize={"10px"}>{entry.name}</StyledText>
