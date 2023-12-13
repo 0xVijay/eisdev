@@ -36,7 +36,16 @@ const SearchContainer = () => {
       if (isValidDomain(searchTerm)) {
           setIsInvalidUrl(false); // Set isInvalidUrl to false as the domain is valid
           try {
-            fetch("https://api.example.com/items")
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  payload: {
+                    domainName: searchTerm
+                  }
+                })
+            }
+            fetch("https://pe-eis-centos-node02.lab.appviewx.net:31443/avxapi/consolidated-metrics?gwsource=api", requestOptions)
             .then(res => res.json())
             .then(
               (result) => {
