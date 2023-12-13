@@ -25,6 +25,7 @@ const SearchContainer = () => {
   const [isInvalidUrl, setIsInvalidUrl] = useState(false);
   const navigate = useNavigate();
   const [apiResponse, setApiResponse] = useState(null);
+  const [apiError, setApiError] = useState(null);
 
   const isValidDomain = (urlString) => {
       const regex = new RegExp(/\.[a-z]{2,}$/);
@@ -35,10 +36,22 @@ const SearchContainer = () => {
       if (isValidDomain(searchTerm)) {
           setIsInvalidUrl(false); // Set isInvalidUrl to false as the domain is valid
           try {
-              const response = await axios.get('https://api.publicapis.org/entries');
-              setApiResponse(response.data);
-              console.log(response.data);
-              navigate(`/search-results/${searchTerm}`, { state: { apiData: response.data } });
+            fetch("https://api.example.com/items")
+            .then(res => res.json())
+            .then(
+              (result) => {
+                setApiResponse(result);
+                console.log(result);
+                navigate(`/search-results/${searchTerm}`, { state: { apiData: result } });
+              },
+              // Note: it's important to handle errors here
+              // instead of a catch() block so that we don't swallow
+              // exceptions from actual bugs in components.
+              (error) => {
+                setApiError(error);
+              }
+            )
+
           } catch (error) {
               console.error('Error fetching data: ', error);
           }
