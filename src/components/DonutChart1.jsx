@@ -49,6 +49,7 @@ const formatToK = (value) => {
 const DonutChart1 = (props) => {
   const data = props.data;
   const colors = props.colors;
+  const totalCerts = 12324;
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
       <ResponsiveContainer>
