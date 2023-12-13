@@ -38,13 +38,23 @@ import {
   Label,
 } from "recharts";
 
+const formatToK = (value) => {
+  if (value < 1000) {
+      return value.toString();
+  } else {
+      return (value / 1000).toFixed(1) + 'K';
+  }
+};
+
 const DonutChart1 = () => {
   const data = [
-    { name: "Active 1", value: 65, bg: "#A264EF" },
-    { name: "Unknown", value: 45, bg: "#690CDB" },
-    { name: "Expired Cert", value: 34, bg: "#2E0067" },
-    { name: "Impersonation", value: 12, bg: "#DBDBDB" },
+    { name: "Active", value: 6215, bg: "#A264EF" },
+    { name: "Unknown", value: 4125, bg: "#690CDB" },
+    { name: "Expired Cert", value: 3124, bg: "#2E0067" },
+    { name: "Impersonation", value: 1122, bg: "#DBDBDB" },
   ];
+
+  const totalCerts = 12323;
 
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
@@ -64,7 +74,7 @@ const DonutChart1 = () => {
               <Cell key={`cell-${index}`} fill={entry.bg} />
             ))}
             <Label
-              value="2548"
+              value={formatToK(totalCerts)}
               position="center"
               dy={-5}
               fontSize={16}
@@ -72,7 +82,7 @@ const DonutChart1 = () => {
               fill="#151D48"
             />
             <Label
-              value="Visitors"
+              value="Certificates"
               position="center"
               dy={10}
               fontSize={8}

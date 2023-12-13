@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Search from "./Search";
 import SearchResults from "./SearchResults";
 import { Helmet } from "react-helmet";
-import CertSpace from './CertSpace'
+import CertSpace from './CertSpace';
+import PhishingMonitoring from "./PhishingMonitoring";
 import Dashboard from "./Dashboard";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/dashboard/:searchTerm" element={<Dashboard />} />
         <Route path="*" element={<Navigate replace to="/" />} />
         <Route path="/certspace" element={<CertSpace/>} />
+        <Route path="/phishing-monitoring" element={<PhishingMonitoring/>} />
       </Routes>
     </Router>
   );

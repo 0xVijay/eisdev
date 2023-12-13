@@ -44,13 +44,13 @@ const SearchResults = () => {
             return value.toString();
         } else {
             return (value / 1000).toFixed(1) + 'K';
-        } 
+        }
     };
 
     const AnimatedCounter = ({ endValue }) => {
         const [count, setCount] = useState(0);
         const duration = 2000; // Complete the animation in 2000ms
-    
+
         useEffect(() => {
             let step = Math.ceil(endValue / (duration / 100)); // Adjust the increment step to complete on time
             const timer = setInterval(() => {
@@ -64,10 +64,10 @@ const SearchResults = () => {
                     }
                 });
             }, 100); // Update every 100ms
-    
+
             return () => clearInterval(timer); // Cleanup on unmount
         }, [endValue, duration]);
-    
+
         return <p className="card-value-txt">{formatToK(count)}</p>;
     };
 
@@ -100,45 +100,45 @@ const SearchResults = () => {
                             <div class="card-separator-line-divided">
                             </div>
                             <div className='subdomains-header'>
-                            <div class="card-header">
-                                <p class="card-header-txt-divided">Sub Domains</p>
-                            </div>
+                                <div class="card-header">
+                                    <p class="card-header-txt-divided">Sub Domains</p>
+                                </div>
                             </div>
                             <div class="card-value">
                                 <AnimatedCounter endValue={domainCount.subDomainCount} duration={1000} />
                             </div>
                         </div>
-                            <div class="content-card-divided">
-                                <div class="card-header">
-                                    <p class="card-header-txt-divided">Potential Phishing</p>
-                                </div>
-                                <div class="card-value">
-                                    <AnimatedCounter endValue={domainCount.phishingDomainMetrics.potentialPhishingCount} duration={1000} />
-                                </div>
-                                <div class="card-separator-line-divided">
-                                </div>
-                                <div className='divided-card-bottom-container'>
-                                    <div className='divided-card-bottom-individual-container-1'>
-                                        <div class="card-header">
-                                            <p class="card-header-txt-divided-bottom-left">Registered</p>
-                                        </div>
-                                        <div class="card-value">
-                                            <AnimatedCounter endValue={domainCount.phishingDomainMetrics.registeredPhishingSites} duration={1000} />
-                                        </div>
+                        {/* <div class="content-card-divided">
+                            <div class="card-header">
+                                <p class="card-header-txt-divided">Potential Phishing</p>
+                            </div>
+                            <div class="card-value">
+                                <AnimatedCounter endValue={domainCount.phishingDomainMetrics.potentialPhishingCount} duration={1000} />
+                            </div>
+                            <div class="card-separator-line-divided">
+                            </div>
+                            <div className='divided-card-bottom-container'>
+                                <div className='divided-card-bottom-individual-container-1'>
+                                    <div class="card-header">
+                                        <p class="card-header-txt-divided-bottom-left">Registered</p>
                                     </div>
-                                    <div className='divided-card-bottom-individual-container-2 '>
-                                        <div class="card-header">
-                                            <p class="card-header-txt-divided-bottom-right">Unregistered</p>
-                                        </div>
-                                        <div class="card-value">
-                                            <AnimatedCounter endValue={domainCount.phishingDomainMetrics.unregisteredPhishingSites} duration={1000} />
-                                        </div>
+                                    <div class="card-value">
+                                        <AnimatedCounter endValue={domainCount.phishingDomainMetrics.registeredPhishingSites} duration={1000} />
+                                    </div>
+                                </div>
+                                <div className='divided-card-bottom-individual-container-2 '>
+                                    <div class="card-header">
+                                        <p class="card-header-txt-divided-bottom-right">Unregistered</p>
+                                    </div>
+                                    <div class="card-value">
+                                        <AnimatedCounter endValue={domainCount.phishingDomainMetrics.unregisteredPhishingSites} duration={1000} />
                                     </div>
                                 </div>
                             </div>
+                        </div> */}
                         <div class="content-card">
                             <div class="card-header">
-                                <p style={{marginTop: "22px", marginBottom:"20px"}} class="card-header-txt">{domainCount.metrics[0].title}</p>
+                                <p style={{ marginTop: "22px", marginBottom: "20px" }} class="card-header-txt">{domainCount.metrics[0].title}</p>
                             </div>
                             <div class="card-separator-line">
 
@@ -149,7 +149,7 @@ const SearchResults = () => {
                         </div>
                         <div class="content-card">
                             <div class="card-header">
-                                <p class="card-header-txt">{domainCount.metrics[1].title}</p>
+                                <p style={{ marginTop: "22px", marginBottom: "20px" }} class="card-header-txt">{domainCount.metrics[1].title}</p>
                             </div>
                             <div class="card-separator-line">
 
@@ -160,7 +160,7 @@ const SearchResults = () => {
                         </div>
                         <div class="content-card">
                             <div class="card-header">
-                                <p class="card-header-txt">{domainCount.metrics[2].title}</p>
+                                <p style={{ marginTop: "22px", marginBottom: "20px" }} class="card-header-txt">{domainCount.metrics[2].title}</p>
                             </div>
                             <div class="card-separator-line">
 

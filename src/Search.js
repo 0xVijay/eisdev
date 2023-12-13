@@ -38,20 +38,21 @@ const SearchContainer = () => {
           try {
             const requestOptions = {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json' , 'username':'admin', 'password':'AppViewX@1234'},
                 body: JSON.stringify({
-                  payload: {
-                    domainName: searchTerm
+                  "payload": {
+                    "domainName": searchTerm
                   }
                 })
             }
-            fetch("https://pe-eis-centos-node02.lab.appviewx.net:31443/avxapi/consolidated-metrics?gwsource=api", requestOptions)
+            // fetch("https://jsonplaceholder.typicode.com/todos/1")
+            fetch("http://pe-eis-centos-node02.lab.appviewx.net:30001/avxapi/consolidated-metrics?gwsource=api", requestOptions)
             .then(res => res.json())
             .then(
               (result) => {
                 setApiResponse(result);
                 console.log(result);
-                navigate(`/search-results/${searchTerm}`, { state: { apiData: result } });
+                navigate(`/dashboard/${searchTerm}`, { state: { apiData: result } });
               },
               // Note: it's important to handle errors here
               // instead of a catch() block so that we don't swallow

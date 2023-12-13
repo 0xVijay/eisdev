@@ -41,8 +41,8 @@ export const LineSeparator = styled.div`
 
 const cardData = [
   {
-    value: "30",
-    value2: "295",
+    value: "30323",
+    value2: "2953",
     domain1: "go0gle.com",
     domain2: "wikipaedia.com",
     domain3: "amezon.com",
@@ -54,8 +54,8 @@ const cardData = [
     width: "30%",
   },
   {
-    value: "3.7K",
-    value2: "2.5k",
+    value: "34343",
+    value2: "22323",
     domain1: "go0gle2.com",
     domain2: "wikipaedia2.com",
     domain3: "amezon2.com",
@@ -67,8 +67,8 @@ const cardData = [
     width: "40%",
   },
   {
-    value: "8.7K",
-    value2: "295",
+    value: "8322",
+    value2: "23232",
     domain1: "go0gle.com",
     domain2: "wikipaedia.com",
     domain3: "amezon.com",
@@ -82,22 +82,22 @@ const cardData = [
 ];
 const domainData = [
   {
-    title: "Total Domain",
+    title: "Total ASM Domains",
     value: "17",
     img: icon_wiki_domain,
   },
   {
-    title: "Total Cost",
+    title: "Total Certificates",
     value: "1823",
     img: icon_wiki_cost,
   },
   {
-    title: "Total Register",
+    title: "Total Registrars",
     value: "25",
     img: icon_wiki_register,
   },
   {
-    title: "Total Authority",
+    title: "Total CAs",
     value: "23",
     img: icon_wiki_authority,
   },
@@ -110,7 +110,7 @@ const StatisticsWikipediaRow = () => {
   const handleClick = (category) => {
     switch(category) {
       case 'Phishing Domain':
-        navigate('/phishing-domain');
+        navigate('/phishing-monitoring');
         break;
       case 'Certificate Impersonation':
         navigate('/certspace');
@@ -136,6 +136,14 @@ const StatisticsWikipediaRow = () => {
       };
       return new Date().toLocaleDateString('en-US', options);
     };
+
+    const formatToK = (value) => {
+      if (value < 1000) {
+          return value.toString();
+      } else {
+          return (value / 1000).toFixed(1) + 'K';
+      }
+  };
 
   return (
     <Container className="wiki-row-container">
@@ -211,7 +219,7 @@ const StatisticsWikipediaRow = () => {
                       color={data.headerColor}
                       textAlign={"center"}
                     >
-                      {data.value}
+                      {formatToK(data.value)}
                     </StyledText>
                     <StyledText
                       fontSize={"8px"}
@@ -268,7 +276,7 @@ const StatisticsWikipediaRow = () => {
                     {data.title}
                   </StyledText>
                   <StyledText color="#151D48" fontSize={"35px"}>
-                    {data.value}
+                    {formatToK(data.value)}
                   </StyledText>
                   <div className="d-flex justify-content-end">
                     <img

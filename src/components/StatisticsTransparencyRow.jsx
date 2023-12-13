@@ -8,6 +8,15 @@ import DonutChart3 from "./DonutChart3.jsx";
 import '../Dashboard.css';
 
 const StatisticsTransparencyRow = () => {
+
+  const formatToK = (value) => {
+    if (value < 1000) {
+        return value.toString();
+    } else {
+        return (value / 1000).toFixed(1) + 'K';
+    }
+};
+
   const data1 = [
     { name: "Active 1", value: 65, bg: "#A264EF" },
     { name: "Unknown", value: 45, bg: "transparent" },
@@ -15,7 +24,7 @@ const StatisticsTransparencyRow = () => {
     { name: "Impersonation", value: 12, bg: "#DBDBDB" },
   ];
   const data2 = [
-    { name: "A", value: 101, bg: "#690CDB" },
+    { name: "A", value: 1010, bg: "#690CDB" },
     { name: "C Name", value: 10, bg: "#B57AFD" },
     { name: "SOA", value: 27, bg: "#737791" },
   ];
@@ -81,7 +90,7 @@ const StatisticsTransparencyRow = () => {
                     ></div>
                     <StyledText fontSize={"7px"}>{entry.name}</StyledText>
                   </div>
-                  <StyledText fontSize={"7px"}>{entry.value}</StyledText>
+                  <StyledText fontSize={"7px"}>{formatToK(entry.value)}</StyledText>
                 </Col>
               ))}
             </Row>

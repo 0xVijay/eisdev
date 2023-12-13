@@ -40,13 +40,23 @@ import {
 
 const DonutChart2 = () => {
   const data = [
-    { name: "A", value: 101, bg: "#B57AFD" },
-    { name: "C Name", value: 10, bg: "#E3D5F3" },
-    { name: "SOA", value: 27, bg: "#33115E" },
-    { name: "AAA", value: 55, bg: "#CBCBCB" },
-    { name: "MX", value: 27, bg: "#690CDB" },
-    { name: "TXT", value: 8, bg: "#4B4B4B" },
+    { name: "A", value: 10121, bg: "#B57AFD" },
+    { name: "C Name", value: 2110, bg: "#E3D5F3" },
+    { name: "SOA", value: 2127, bg: "#33115E" },
+    { name: "AAA", value: 5125, bg: "#CBCBCB" },
+    { name: "MX", value: 2127, bg: "#690CDB" },
+    { name: "TXT", value: 1238, bg: "#4B4B4B" },
   ];
+
+  const formatToK = (value) => {
+    if (value < 1000) {
+        return value.toString();
+    } else {
+        return (value / 1000).toFixed(1) + 'K';
+    }
+};
+  
+  const totalDNS = 52524;
 
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
@@ -66,7 +76,7 @@ const DonutChart2 = () => {
               <Cell key={`cell-${index}`} fill={entry.bg} />
             ))}
             <Label
-              value="246"
+              value={formatToK(totalDNS)}
               position="center"
               dy={-5}
               fontSize={16}
@@ -74,7 +84,7 @@ const DonutChart2 = () => {
               fill="#151D48"
             />
             <Label
-              value="Total"
+              value="Total DNS Records"
               position="center"
               dy={10}
               fontSize={8}

@@ -11,18 +11,18 @@ import MUITable from "../MuiTableComponent.js";
 
 const StatisticsCertificateRow = () => {
   const data1 = [
-    { name: "Active 1", value: 65, bg: "#A264EF" },
-    { name: "Unknown", value: 45, bg: "#690CDB" },
-    { name: "Expired Cert", value: 34, bg: "#2E0067" },
-    { name: "Impersonation", value: 12, bg: "#DBDBDB" },
+    { name: "Active 1", value: 65212, bg: "#A264EF" },
+    { name: "Unknown", value: 4215, bg: "#690CDB" },
+    { name: "Expired Cert", value: 3412, bg: "#2E0067" },
+    { name: "Impersonation", value: 1212, bg: "#DBDBDB" },
   ];
   const data2 = [
-    { name: "A", value: 101, bg: "#B57AFD" },
-    { name: "C Name", value: 10, bg: "#E3D5F3" },
-    { name: "SOA", value: 27, bg: "#33115E" },
-    { name: "AAA", value: 55, bg: "#CBCBCB" },
-    { name: "MX", value: 27, bg: "#690CDB" },
-    { name: "TXT", value: 8, bg: "#4B4B4B" },
+    { name: "A", value: 10211, bg: "#B57AFD" },
+    { name: "C Name", value: 1012, bg: "#E3D5F3" },
+    { name: "SOA", value: 12127, bg: "#33115E" },
+    { name: "AAA", value: 5215, bg: "#CBCBCB" },
+    { name: "MX", value: 1221, bg: "#690CDB" },
+    { name: "TXT", value: 8222, bg: "#4B4B4B" },
   ];
 
   return (

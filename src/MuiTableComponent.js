@@ -153,6 +153,7 @@ const MUITable = () => {
             columns={columns}
             data={data}
             title="DNS Vulnerability"
+            options={options}
           />
         </div>
         {/* Dialog component to show selected row data */}
