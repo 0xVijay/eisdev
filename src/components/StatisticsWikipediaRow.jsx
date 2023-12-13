@@ -31,7 +31,7 @@ export const StyledCard = styled.div`
   height: ${(props) => (props.height ? props.height : `auto`)};
 `;
 
-const LineSeparator = styled.div`
+export const LineSeparator = styled.div`
   height: ${(props) => (props.height ? props.height : "18px")};
   width: 2px;
   background-color: #737791;
@@ -77,17 +77,17 @@ const domainData = [
   },
   {
     title: "Total Cost",
-    value: "17",
+    value: "1823",
     img: icon_wiki_cost,
   },
   {
     title: "Total Register",
-    value: "17",
+    value: "25",
     img: icon_wiki_register,
   },
   {
     title: "Total Authority",
-    value: "17",
+    value: "23",
     img: icon_wiki_authority,
   },
 ];

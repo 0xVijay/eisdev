@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
-import MUIDataTable from 'mui-datatables';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Grow from '@mui/material/Grow';
-import './MuiTableComponent.css';
-import { createTheme, ThemeProvider, StyledEngineProvider} from '@mui/material/styles';
-
+import React, { useState } from "react";
+import MUIDataTable from "mui-datatables";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Grow from "@mui/material/Grow";
+import "./MuiTableComponent.css";
+import {
+  createTheme,
+  ThemeProvider,
+  StyledEngineProvider,
+} from "@mui/material/styles";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Grow ref={ref} {...props} />;
-  });
+  return <Grow ref={ref} {...props} />;
+});
 
 const MUITable = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -99,23 +102,28 @@ const dashboardCount = {
   });
 
   const options = {
-    filterType: 'checkbox',
-    responsive: 'standard',
-    selectableRows: 'none',
+    filterType: "checkbox",
+    responsive: "standard",
+    selectableRows: "none",
     customSearch: (searchQuery, currentRow, columns) => {
-        const columnIndex = 1; // Index of 'Name' column, assuming it's the second column
-        if (currentRow[columnIndex].toString().toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1) {
-          return true;
-        }
-        return false;
-      },
-      onRowClick: (rowData) => {
-        // console.log(data[rowData[0]-1].recomdesc);
-        setSelectedRowData({
-            recomdesc:data[rowData[0]-1].recomdesc
-        });
-        setDialogOpen(true); // Open the dialog when a row is clicked
-      },
+      const columnIndex = 1; // Index of 'Name' column, assuming it's the second column
+      if (
+        currentRow[columnIndex]
+          .toString()
+          .toLowerCase()
+          .indexOf(searchQuery.toLowerCase()) !== -1
+      ) {
+        return true;
+      }
+      return false;
+    },
+    onRowClick: (rowData) => {
+      // console.log(data[rowData[0] - 1].recomdesc);
+      setSelectedRowData({
+        recomdesc: data[rowData[0] - 1].recomdesc,
+      });
+      setDialogOpen(true); // Open the dialog when a row is clicked
+    },
   };
 
   const handleCloseDialog = () => {
