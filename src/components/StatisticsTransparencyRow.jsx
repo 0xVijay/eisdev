@@ -1,15 +1,11 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import {
-  LineSeparator,
-  StyledCard,
-  StyledText,
-} from "./StatisticsWikipediaRow";
+import { StyledCard, StyledText } from "./StatisticsWikipediaRow";
 import DonutChart1 from "./DonutChart1.jsx";
 import DonutChart2 from "./DonutChart2.jsx";
-import MUITable from "../MuiTableComponent.js";
+import AreaChartComponent from "../AreaChartComponent.js";
 
-const StatisticsCertificateRow = () => {
+const StatisticsTransparencyRow = () => {
   const data1 = [
     { name: "Active 1", value: 65, bg: "#A264EF" },
     { name: "Unknown", value: 45, bg: "#690CDB" },
@@ -28,8 +24,9 @@ const StatisticsCertificateRow = () => {
   return (
     <Container>
       <Row className="">
-        <Col lg={3} className="p-0">
+        <Col lg={9} className="">
           <StyledCard
+            br={"8px 8px 0 0"}
             style={{
               flex: 1,
             }}
@@ -39,44 +36,11 @@ const StatisticsCertificateRow = () => {
               color={"#151D48"}
               fontSize={"15px"}
               margin={"0px 0px 18px 0px"}
-            >
-              Certificate Space
-            </StyledText>
-            <DonutChart1 />
-            <Row>
-              {data1.map((entry, index) => (
-                <Col lg={6} className="d-flex align-items-center gap-1">
-                  <div
-                    style={{
-                      width: "7px",
-                      height: "7px",
-                      borderRadius: "50%",
-                      backgroundColor: entry.bg,
-                    }}
-                  ></div>
-                  <StyledText fontSize={"10px"}>{entry.name}</StyledText>
-                </Col>
-              ))}
-            </Row>
-          </StyledCard>
-        </Col>
-        <Col lg={6} className="">
-          <StyledCard
-            br={"8px 8px 0 0"}
-            style={{
-              flex: 1,
-            }}
-            className="d-flex flex-column justify-content-between p-0 bg-white"
-          >
-            <StyledText
-              color={"#151D48"}
-              fontSize={"15px"}
-              margin={"0px 0px 18px 0px"}
               className="p-2"
             >
-              List of Vulnerability data table{" "}
+              Certificate Transparency
             </StyledText>
-            <hr className="m-0" />
+            <AreaChartComponent />
             {/* <MUITable /> */}
           </StyledCard>
         </Col>
@@ -117,26 +81,4 @@ const StatisticsCertificateRow = () => {
   );
 };
 
-export default StatisticsCertificateRow;
-{
-  /* <div
-className="d-flex align-items-center justify-content-between"
-style={{ marginBlockEnd: "34px" }}
->
-<StyledText fontSize={"62px"} color={"#690CDB"}>
-  96.4
-  <span style={{ fontSize: "31px" }}>/100</span>
-</StyledText>
-</div>
-<div className="d-flex align-items-center justify-content-start gap-2">
-<LineSeparator />
-<StyledText color="#737791" fontSize={"10px"}>
-  24 Pages
-</StyledText>
-
-<LineSeparator />
-<StyledText color="#737791" fontSize={"10px"}>
-  India
-</StyledText>
-</div> */
-}
+export default StatisticsTransparencyRow;
