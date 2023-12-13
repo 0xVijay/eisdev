@@ -4,21 +4,19 @@ import { StyledCard, StyledText } from "./StatisticsWikipediaRow";
 import DonutChart1 from "./DonutChart1.jsx";
 import DonutChart2 from "./DonutChart2.jsx";
 import AreaChartComponent from "../AreaChartComponent.js";
+import DonutChart3 from "./DonutChart3.jsx";
 
 const StatisticsTransparencyRow = () => {
   const data1 = [
     { name: "Active 1", value: 65, bg: "#A264EF" },
-    { name: "Unknown", value: 45, bg: "#690CDB" },
+    { name: "Unknown", value: 45, bg: "transparent" },
     { name: "Expired Cert", value: 34, bg: "#2E0067" },
     { name: "Impersonation", value: 12, bg: "#DBDBDB" },
   ];
   const data2 = [
-    { name: "A", value: 101, bg: "#B57AFD" },
-    { name: "C Name", value: 10, bg: "#E3D5F3" },
-    { name: "SOA", value: 27, bg: "#33115E" },
-    { name: "AAA", value: 55, bg: "#CBCBCB" },
-    { name: "MX", value: 27, bg: "#690CDB" },
-    { name: "TXT", value: 8, bg: "#4B4B4B" },
+    { name: "A", value: 101, bg: "#690CDB" },
+    { name: "C Name", value: 10, bg: "#B57AFD" },
+    { name: "SOA", value: 27, bg: "#737791" },
   ];
 
   return (
@@ -56,21 +54,34 @@ const StatisticsTransparencyRow = () => {
               fontSize={"15px"}
               margin={"0px 0px 18px 0px"}
             >
-              DNS Records
+              Key Summary
             </StyledText>
-            <DonutChart2 />
+            <StyledText
+              color={"#737791"}
+              fontSize={"7px"}
+              margin={"0px 0px 18px 0px"}
+            >
+              Last Updated on December 10, 2023 at 03:16 PM
+            </StyledText>
+            <DonutChart3 />
             <Row>
               {data2.map((entry, index) => (
-                <Col lg={4} className="d-flex align-items-center gap-1">
-                  <div
-                    style={{
-                      width: "7px",
-                      height: "7px",
-                      borderRadius: "50%",
-                      backgroundColor: entry.bg,
-                    }}
-                  ></div>
-                  <StyledText fontSize={"10px"}>{entry.name}</StyledText>
+                <Col
+                  lg={4}
+                  className="d-flex align-items-center justify-content-between gap-2"
+                >
+                  <div className="d-flex align-items-center gap-1">
+                    <div
+                      style={{
+                        width: "5px",
+                        height: "5px",
+                        borderRadius: "50%",
+                        backgroundColor: entry.bg,
+                      }}
+                    ></div>
+                    <StyledText fontSize={"7px"}>{entry.name}</StyledText>
+                  </div>
+                  <StyledText fontSize={"7px"}>{entry.value}</StyledText>
                 </Col>
               ))}
             </Row>
