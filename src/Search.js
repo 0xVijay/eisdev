@@ -79,7 +79,6 @@ const SearchContainer = () => {
                   },
               ],
               certificateSpace: [
-                { name: "Active 1", value: 50 },
                 { name: "Unknown", value: 45 },
                 { name: "Expired Cert", value: 34 },
                 { name: "Impersonation", value: 12 },
@@ -101,14 +100,14 @@ const SearchContainer = () => {
                 {
                   name: "GoDaddy.com",
                   Issue: 10,
-                  Expiry: 40,
+                  Expiry: 48,
                   DNS: 75,
                 },
                 {
                   name: "Entrust.Inc",
-                  Issue: 10,
-                  Expiry: 40,
-                  DNS: 75,
+                  Issue: 65,
+                  Expiry: 56,
+                  DNS: 23,
                 },
               ],
             }

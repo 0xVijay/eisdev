@@ -40,6 +40,7 @@ import {
 
 const DonutChart2 = (props) => {
   const data = props.data;
+  const colors = props.colors;
 
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
@@ -56,7 +57,7 @@ const DonutChart2 = (props) => {
             blendStroke
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.bg} />
+              <Cell key={`cell-${index}`} fill={colors[index]} />
             ))}
             <Label
               value="246"

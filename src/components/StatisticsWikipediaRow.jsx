@@ -14,6 +14,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import "../Dashboard.css";
 import { useNavigate } from "react-router-dom";
+import { generateColor } from "../color";
 
 export const StyledText = styled.p`
   color: ${(props) =>

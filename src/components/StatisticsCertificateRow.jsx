@@ -8,23 +8,11 @@ import {
 import DonutChart1 from "./DonutChart1.jsx";
 import DonutChart2 from "./DonutChart2.jsx";
 import MUITable from "../MuiTableComponent.js";
+import { generateColor } from "../color";
 
 const StatisticsCertificateRow = (props) => {
   const response = props.data.response;
-  const data1 = [
-    { name: "Active 1", value: 65, bg: "#A264EF" },
-    { name: "Unknown", value: 45, bg: "#690CDB" },
-    { name: "Expired Cert", value: 34, bg: "#2E0067" },
-    { name: "Impersonation", value: 12, bg: "#DBDBDB" },
-  ];
-  const data2 = [
-    { name: "A", value: 101, bg: "#B57AFD" },
-    { name: "C Name", value: 10, bg: "#E3D5F3" },
-    { name: "SOA", value: 27, bg: "#33115E" },
-    { name: "AAA", value: 55, bg: "#CBCBCB" },
-    { name: "MX", value: 27, bg: "#690CDB" },
-    { name: "TXT", value: 8, bg: "#4B4B4B" },
-  ];
+ const colors = generateColor('#690CDB', '#b57afd', 10);
 
   return (
     <Container>
@@ -43,7 +31,7 @@ const StatisticsCertificateRow = (props) => {
             >
               Certificate Space
             </StyledText>
-            <DonutChart1 data={response.certificateSpace} />
+            <DonutChart1 data={response.certificateSpace} colors={colors} />
             <Row>
               {response.certificateSpace.map((entry, index) => (
                 <Col lg={6} className="d-flex align-items-center gap-1">
@@ -51,7 +39,8 @@ const StatisticsCertificateRow = (props) => {
                     style={{
                       width: "7px",
                       height: "7px",
-                      borderRadius: "50%"
+                      borderRadius: "50%",
+                      backgroundColor: colors[index]
                     }}
                   ></div>
                   <StyledText fontSize={"10px"}>{entry.name}</StyledText>
@@ -87,7 +76,7 @@ const StatisticsCertificateRow = (props) => {
             >
               DNS Records
             </StyledText>
-            <DonutChart2 data={response.dnsRecords} />
+            <DonutChart2 data={response.dnsRecords} colors={colors} />
             <Row>
               {response.dnsRecords.map((entry, index) => (
                 <Col lg={4} className="d-flex align-items-center gap-1">
@@ -95,7 +84,8 @@ const StatisticsCertificateRow = (props) => {
                     style={{
                       width: "7px",
                       height: "7px",
-                      borderRadius: "50%"
+                      borderRadius: "50%",
+                      backgroundColor: colors[index]
                     }}
                   ></div>
                   <StyledText fontSize={"10px"}>{entry.name}</StyledText>

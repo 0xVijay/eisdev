@@ -25,7 +25,7 @@ const Dashboard = () => {
           <StatCard2  data={location.state.apiData} />
         </div>
         <div style={{ marginTop: "2%" }} className="stat-card-container">
-          <StatCard3 />
+          <StatCard3 data={location.state.apiData} />
         </div>
         {/* <div className='dash-chart-container'>
                     <AreaChart/>

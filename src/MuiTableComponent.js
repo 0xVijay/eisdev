@@ -24,7 +24,7 @@ const MUITable = () => {
 
   const tabledata = {
     columns: [
-      { label: "S. No", name: "sno" },
+      { label: "S.No", name: "sno" },
       { label: "Name", name: "name" },
       { label: "Record", name: "record" },
       {
