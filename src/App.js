@@ -19,7 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Search />} />
         <Route path="/search-results/" element={<SearchResults />} />
-        <Route path="/dashboard/" element={<Dashboard />} />
+        <Route path="/dashboard/:searchTerm" element={<Dashboard />} />
         <Route path="*" element={<Navigate replace to="/" />} />
         <Route path="/certspace" element={<CertSpace/>} />
       </Routes>
