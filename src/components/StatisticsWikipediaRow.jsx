@@ -110,14 +110,14 @@ const StatisticsWikipediaRow = (props) => {
 
   const handleClick = (category) => {
     switch (category) {
-      case "Phishing Domain":
-        navigate("/phishing-domain");
+      case "Domain Space":
+        navigate("/phishing-domain", {response});
         break;
-      case "Certificate Impersonation":
-        navigate("/certspace");
+      case "Certificate Space":
+        navigate("/certspace", {response});
         break;
-      case "DNS Vulnerability":
-        navigate("/search-results");
+      case "Phishing Monitoring":
+        navigate("/search-results", {response});
         break;
       default:
         // Optional: handle default case
@@ -299,7 +299,7 @@ const StatisticsWikipediaRow = (props) => {
               fontSize={"12px"}
               color={"#151D48"}
               cursor={"pointer"}
-              onClick={() => handleClick(cardData[1].category)}
+              onClick={() => handleClick('Certificate Space')}
             >
               Certificate Space&nbsp;
               <span style={{ color: "#690CDB" }}>
@@ -315,7 +315,7 @@ const StatisticsWikipediaRow = (props) => {
               fontSize={"12px"}
               color={"#151D48"}
               cursor={"pointer"}
-              onClick={() => handleClick(cardData[2].category)}
+              onClick={() => handleClick('Domain Space')}
             >
               Domain Space &nbsp;
               <span style={{ color: "#690CDB" }}>
@@ -331,7 +331,7 @@ const StatisticsWikipediaRow = (props) => {
               fontSize={"12px"}
               color={"#151D48"}
               cursor={"pointer"}
-              onClick={() => handleClick(cardData[0].category)}
+              onClick={() => handleClick('Phishing Monitoring')}
             >
               Phishing Monitoring &nbsp;
               <span style={{ color: "#690CDB" }}>
