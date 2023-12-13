@@ -1,12 +1,12 @@
-import React from 'react'; // Make sure the path to your Statistics component is correct
-import Sidebar from './Sidebar.js';
+import React from "react"; // Make sure the path to your Statistics component is correct
+import Sidebar from "./Sidebar.js";
 import StatCard1, { StyledText } from "./components/StatisticsWikipediaRow.jsx";
 import StatCard2 from "./components/StatisticsCertificateRow.jsx";
 import StatCard3 from "./components/StatisticsTransparencyRow.jsx";
-import Header from './Header';
-import './Dashboard.css';
-import './SearchResults.css';
-import AreaChart from './AreaChartComponent.js';
+import Header from "./Header";
+import "./Dashboard.css";
+import "./SearchResults.css";
+import AreaChart from "./AreaChartComponent.js";
 
 const Dashboard = () => {
   return (
