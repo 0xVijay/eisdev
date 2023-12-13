@@ -6,19 +6,11 @@ import DonutChart2 from "./DonutChart2.jsx";
 import AreaChartComponent from "../AreaChartComponent.js";
 import DonutChart3 from "./DonutChart3.jsx";
 import '../Dashboard.css';
+import { generateColor } from "../color.js";
 
-const StatisticsTransparencyRow = () => {
-  const data1 = [
-    { name: "Active 1", value: 65, bg: "#A264EF" },
-    { name: "Unknown", value: 45, bg: "transparent" },
-    { name: "Expired Cert", value: 34, bg: "#2E0067" },
-    { name: "Impersonation", value: 12, bg: "#DBDBDB" },
-  ];
-  const data2 = [
-    { name: "A", value: 101, bg: "#690CDB" },
-    { name: "C Name", value: 10, bg: "#B57AFD" },
-    { name: "SOA", value: 27, bg: "#737791" },
-  ];
+const StatisticsTransparencyRow = (props) => {
+  const response = props.data.response;
+ const colors = generateColor('#690CDB', '#b57afd', 10);
 
   return (
     <Container>
@@ -39,7 +31,7 @@ const StatisticsTransparencyRow = () => {
             >
               Certificate Transparency
             </StyledText>
-            <AreaChartComponent />
+            <AreaChartComponent data={response.certificateTransperancy} />
           </StyledCard>
         </Col>
         <Col lg={3} className="p-0 d-flex">
@@ -63,9 +55,9 @@ const StatisticsTransparencyRow = () => {
             >
               Last Updated on December 10, 2023 at 03:16 PM
             </StyledText>
-            <DonutChart3 />
+            <DonutChart3 data={response.keySummary} colors={colors} />
             <Row>
-              {data2.map((entry, index) => (
+              {response.keySummary.map((entry, index) => (
                 <Col
                   lg={4}
                   className="d-flex align-items-center justify-content-between gap-2"
@@ -76,7 +68,7 @@ const StatisticsTransparencyRow = () => {
                         width: "5px",
                         height: "5px",
                         borderRadius: "50%",
-                        backgroundColor: entry.bg,
+                        backgroundColor: colors[index],
                       }}
                     ></div>
                     <StyledText fontSize={"7px"}>{entry.name}</StyledText>

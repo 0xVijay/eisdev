@@ -40,7 +40,7 @@ import {
 
 const DonutChart1 = (props) => {
   const data = props.data;
-
+  const colors = props.colors;
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
       <ResponsiveContainer>
@@ -56,7 +56,7 @@ const DonutChart1 = (props) => {
             paddingAngle={0}
           >
             {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.bg} />
+              <Cell key={`cell-${index}`} fill={colors[index]} />
             ))}
             <Label
               value="2548"
