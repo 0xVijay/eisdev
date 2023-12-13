@@ -27,3 +27,21 @@
   }
    */
 
+.css-11mde6h-MuiPaper-root{
+    padding: 2%;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.css-11mde6h-MuiPaper-root:hover{
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.12), 0px 4px 5px 0px rgba(0,0,0,0.12), 0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+.tss-tlx3x1-MUIDataTableToolbar-root{
+    margin-left: -10px;
+}
+
+.tss-hj53wm-MUIDataTableToolbar-titleText, .tss-1akey0g-MUIDataTableHeadCell-data{
+    font-weight: 600;
+}

@@ -19,67 +19,73 @@ const MUITable = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedRowData, setSelectedRowData] = useState({});
 
-  const columns = [
-    { label: 'S. No', name: 'sno' },
-    { label: 'Name', name: 'name', options: { sort: true } },
-    { label: 'Record', name: 'record', options: { sort: true } },
-    { label: 'Fix Recommendation', name: 'fixrecommendation' }
-  ];
-
-  const data = [
+const tabledata = {
+  "columns": [
+    { "label": "S. No", "name": "sno" },
+    { "label": "Name", "name": "name" },
+    { "label": "Record", "name": "record" },
+    { "label": "Fix Recommendation", "name": "fixrecommendation" }
+  ],
+  "data": [
     {
-      sno: 1,
-      name: "SPF Record Missing",
-      record: "A",
-      fixrecommendation: "Recommendation 1",
-      recomdesc: "Recommendation Description 1"
-
+      "sno": 1,
+      "name": "SPF Record Missing",
+      "record": "A",
+      "fixrecommendation": "Recommendation 1",
+      "recomdesc": "Recommendation Description 1"
     },
     {
-      sno: 2,
-      name: "SPF Record Missing",
-      record: "SPF",
-      fixrecommendation: "Recommendation 2",
-      recomdesc: "Recommendation Description 2"
+      "sno": 2,
+      "name": "SPF Record Missing",
+      "record": "SPF",
+      "fixrecommendation": "Recommendation 2",
+      "recomdesc": "Recommendation Description 2"
     },
     {
-      sno: 3,
-      name: "SPF Record Missing",
-      record: "SPF",
-      fixrecommendation: "Recommendation 3",
-      recomdesc: "Recommendation Description 3"
+      "sno": 3,
+      "name": "SPF Record Missing",
+      "record": "SPF",
+      "fixrecommendation": "Recommendation 3",
+      "recomdesc": "Recommendation Description 3"
     },
     {
-      sno: 4,
-      name: "SPF Record Missing",
-      record: "MX",
-      fixrecommendation: "Recommendation 4",
-      recomdesc: "Recommendation Description 4"
+      "sno": 4,
+      "name": "SPF Record Missing",
+      "record": "MX",
+      "fixrecommendation": "Recommendation 4",
+      "recomdesc": "Recommendation Description 4"
     },
     {
-      sno: 5,
-      name: "SPF Record Missing",
-      record: "MX",
-      fixrecommendation: "Recommendation 5",
-      recomdesc: "Recommendation Description 5"
+      "sno": 5,
+      "name": "SPF Record Missing",
+      "record": "MX",
+      "fixrecommendation": "Recommendation 5",
+      "recomdesc": "Recommendation Description 5"
     },
     {
-      sno: 6,
-      name: "SPF Record Missing",
-      record: "AA",
-      fixrecommendation: "Recommendation 6",
-      recomdesc: "Recommendation Description 6"
+      "sno": 6,
+      "name": "SPF Record Missing",
+      "record": "AA",
+      "fixrecommendation": "Recommendation 6",
+      "recomdesc": "Recommendation Description 6"
     },
     {
-      sno: 7,
-      name: "SPF Record Missing",
-      record: "MX",
-      fixrecommendation: "Recommendation 7",
-      recomdesc: "Recommendation Description 7"
+      "sno": 7,
+      "name": "SPF Record Missing",
+      "record": "MX",
+      "fixrecommendation": "Recommendation 7",
+      "recomdesc": "Recommendation Description 7"
     }
-  ];
+  ]
+}
 
-  // Create a custom theme
+const dashboardCount = {
+  
+}
+
+  const columns = tabledata.columns;
+  const data = tabledata.data;
+
   const getMuiTheme = () => createTheme({
     components: { // Changed from `overrides` to `components` for MUI v5
       MUIDataTableBodyCell: {
@@ -104,7 +110,7 @@ const MUITable = () => {
         return false;
       },
       onRowClick: (rowData) => {
-        console.log(data[rowData[0]-1].recomdesc);
+        // console.log(data[rowData[0]-1].recomdesc);
         setSelectedRowData({
             recomdesc:data[rowData[0]-1].recomdesc
         });
@@ -143,7 +149,7 @@ const MUITable = () => {
         <DialogContent>
           <Card class='popup-card'>
             <CardContent>
-                {console.log(selectedRowData)}
+                {/* {console.log(selectedRowData)} */}
               <Typography variant="body1" marginLeft="-13px">{selectedRowData.recomdesc}</Typography>
             </CardContent>
           </Card>

@@ -31,8 +31,20 @@
         align-items: center;
         justify-content: center;
         min-height: 280px;
+        border-radius: 8px;
+        margin-right: 2%;
 }
 
 .cards-container-dash{
     padding-bottom: 5%;
+}
+
+.dash-chart-container{
+    width: 63%;
+    margin-left: 2%;
+    margin-top: 2%;
+    height: 280px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #FFFFFF;
 }
