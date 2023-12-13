@@ -1,11 +1,11 @@
-.css-ubpweo-MuiPaper-root-MuiPopover-paper{
+/* .css-ubpweo-MuiPaper-root-MuiPopover-paper{
     padding-left: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .tss-1ufdzki-MUIDataTableSearch-main{
-    margin-left: 0%;
+    margin-left: 10%;
 }
 
 .css-ubpweo-MuiPaper-root-MuiPopover-paper{
@@ -14,5 +14,16 @@
 }
 
 .css-11mde6h-MuiPaper-root{
-    width: 90%;
+    width: 100%;
 }
+
+.my-custom-datatable .MuiPopover-paper .MuiMenuItem-root {
+    padding: 20px !important;
+  }
+
+  
+  .my-custom-datatable .MuiPopover-paper {
+    padding: 20px; 
+  }
+   */
+

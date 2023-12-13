@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import MUIDataTable from 'mui-datatables';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -8,6 +7,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grow from '@mui/material/Grow';
+import './MuiTableComponent.css';
+import { createTheme, ThemeProvider, StyledEngineProvider} from '@mui/material/styles';
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Grow ref={ref} {...props} />;
@@ -83,7 +85,7 @@ const MUITable = () => {
       MUIDataTableBodyCell: {
         styleOverrides: {
           root: {
-            padding: '16px', // Updated padding here
+            // padding: '16px', // Updated padding here
           },
         },
       },
@@ -115,8 +117,9 @@ const MUITable = () => {
   };
 
   return (
+  <StyledEngineProvider injectFirst>
     <ThemeProvider theme={getMuiTheme()}>
-      <div className="mui-datatable-custom-container" style={{ maxWidth: '100%', borderRadius: '8px' }}>
+      <div className="my-custom-datatable">
         <MUIDataTable
           columns={columns}
           data={data}
@@ -147,6 +150,7 @@ const MUITable = () => {
         </DialogContent>
       </Dialog>
     </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

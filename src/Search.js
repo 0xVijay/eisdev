@@ -13,8 +13,8 @@ const Header = () => {
         <img src={avxIcon} alt="Header Logo" />
       </div>
       <div className="header-buttons">
-        <button className="login-btn">Login</button>
-        <button className="signup-btn">Sign Up</button>
+        <button className="login-btn">Contact Us</button>
+        <button className="signup-btn">Support</button>
       </div> 
     </header>
   );
@@ -34,14 +34,14 @@ const SearchContainer = () => {
   const handleSearch = async () => {
       if (isValidDomain(searchTerm)) {
           setIsInvalidUrl(false); // Set isInvalidUrl to false as the domain is valid
-          // try {
-          //     const response = await axios.get('https://api.publicapis.org/entries');
-          //     setApiResponse(response.data);
-          //     console.log(response.data);
-          //     navigate(`/search-results/${searchTerm}`, { state: { apiData: response.data } });
-          // } catch (error) {
-          //     console.error('Error fetching data: ', error);
-          // }
+          try {
+              const response = await axios.get('https://api.publicapis.org/entries');
+              setApiResponse(response.data);
+              console.log(response.data);
+              navigate(`/dashboard/${searchTerm}`, { state: { apiData: response.data } });
+          } catch (error) {
+              console.error('Error fetching data: ', error);
+          }
       } else {
           setIsInvalidUrl(true); // Set isInvalidUrl to true as the domain is invalid
           console.log('Invalid domain:', searchTerm);

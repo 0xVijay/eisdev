@@ -95,7 +95,7 @@ const domainData = [
 const StatisticsWikipediaRow = () => {
   return (
     <Container>
-      <Row className="bg-white p-1 d-flex border rounded">
+      <Row className="bg-white p-1 d-flex border rounded py-3">
         <Col lg={4} className="d-flex">
           <StyledCard
             style={{

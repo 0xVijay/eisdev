@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './SearchResults.css';
-import headerLogo from "./assets/header-logo.svg";
 import headerUser from "./assets/Header-namegroup.png";
-import gridAlt from "./assets/grid-alt.svg";
 import MuiTableComponent from './MuiTableComponent';
 import Sidebar from './Sidebar';
+import Header from './Header';
 
 const SearchResults = () => {
 
@@ -45,15 +44,7 @@ const SearchResults = () => {
       {/* Add the HTML content here */}
       <div class="ti-container">
         <Sidebar />
-        <div class="threat-header-container">
-            <div class="ti-header">
-                <div class="ti-header-txt">
-                    <p>Threat Intelligence</p>
-                </div>
-                <div><img class='header-image-group' src={headerUser} alt="Header User">
-                </img></div>
-            </div>
-        </div>
+        <Header />
 
         <div class="ti-cards-container">
             <div class="domain-header">
@@ -136,67 +127,6 @@ const SearchResults = () => {
                 </div>
             </div>
             <div class="ti-table">
-                {/* <div class="ti-table-header">
-                    <p class="ti-table-header-txt">DNS Vulnerability</p>
-                </div>
-                <div class="ti-table-separator-line">
-                </div>
-                <div class="ti-table-contents-container">
-                    <table class="ti-dns-table">
-                        <thead class="dns-table-col-head">
-                        <tr className='ti-table-header-border'>
-                                <th>S. No</th>
-                                <th>Name</th>
-                                <th>Record</th>
-                                <th>Fix Recommendation</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="dns-table-body-txt">
-                                <td>1</td>
-                                <td>SPF Record Missing</td>
-                                <td>A</td>
-                                <td>Recommendation</td>
-                            </tr>
-                            <tr class="dns-table-body-txt">
-                                <td>2</td>
-                                <td>SPF Record Missing</td>
-                                <td>SPF</td>
-                                <td>Recommendation</td>
-                            </tr>
-                            <tr class="dns-table-body-txt">
-                                <td>3</td>
-                                <td>SPF Record Missing</td>
-                                <td>SPF</td>
-                                <td>Recommendation</td>
-                            </tr>
-                            <tr class="dns-table-body-txt">
-                                <td>4</td>
-                                <td>SPF Record Missing</td>
-                                <td>MX</td>
-                                <td>Recommendation</td>
-                            </tr>
-                            <tr class="dns-table-body-txt">
-                                <td>5</td>
-                                <td>SPF Record Missing</td>
-                                <td>MX</td>
-                                <td>Recommendation</td>
-                            </tr>
-                            <tr class="dns-table-body-txt">
-                                <td>6</td>
-                                <td>SPF Record Missing</td>
-                                <td>AA</td>
-                                <td>Recommendation</td>
-                            </tr>
-                            <tr class="dns-table-body-txt">
-                                <td>7</td>
-                                <td>SPF Record Missing</td>
-                                <td>MX</td>
-                                <td>Recommendation</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> */}
                 <MuiTableComponent />
             </div>
         </div>

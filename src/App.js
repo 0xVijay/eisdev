@@ -5,6 +5,7 @@ import Search from "./Search";
 import SearchResults from "./SearchResults";
 import { Helmet } from "react-helmet";
 import StatisticsWikipediaRow from "./components/StatisticsWikipediaRow";
+import Dashboard from "./Dashboard";
 
 const App = () => {
   return (
@@ -17,8 +18,8 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path="/" element={<Search />} />
-        <Route path="/search-results/:searchTerm" element={<SearchResults />} />
-        <Route path="/dashboard" element={<StatisticsWikipediaRow />} />
+        <Route path="/search-results/" element={<SearchResults />} />
+        <Route path="/dashboard/:searchTerm" element={<Dashboard />} />
       </Routes>
     </Router>
   );
