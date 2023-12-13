@@ -1,3 +1,44 @@
+{
+    "_id" : ObjectId("6579dc37059b556cc7e68709"),
+    "aaaa_rec_misconfiguration" : [
+
+    ],
+    "cname_rec_misconfiguration" : [
+
+    ],
+    "dmarc_rec_misconfiguration" : [
+        {
+            "comments" : "",
+            "recommendation" : "",
+            "vuln_name" : "not_present"
+        }
+    ],
+    "dnskey_rec_misconfiguration" : [
+        {
+            "comments" : "",
+            "recommendation" : "",
+            "vuln_name" : "not_present"
+        }
+    ],
+    "domain_name" : "appviewx.com",
+    "mx_rec_misconfiguration" : [
+
+    ],
+    "ns_rec_misconfiguration" : [
+
+    ],
+    "soa_rec_misconfiguration" : [
+        {
+            "comments" : "appviewx.com. 1783 IN SOA guss.ns.cloudflare.com. dns@cloudflare.com. 2327937833 10000 2400 604800 1800",
+            "recommendation" : "",
+            "vuln_name" : "soa_minimum_ttl"
+        }
+    ],
+    "spf_rec_misconfiguration" : [
+
+    ]
+}
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

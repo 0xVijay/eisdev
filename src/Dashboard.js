@@ -6,8 +6,12 @@ import StatCard3 from "./components/StatisticsTransparencyRow.jsx";
 import Header from "./Header";
 import "./Dashboard.css";
 import "./SearchResults.css";
+import { useLocation } from "react-router-dom";
 
 const Dashboard = () => {
+  const location = useLocation();
+  console.log(location.state.apiData);
+
   return (
     <div className="dashboard-main-container">
       <Header />
@@ -15,10 +19,10 @@ const Dashboard = () => {
       <div className="ti-cards-container cards-container-das px-3">
         <StyledText fontSize={"25px"}>Statistics</StyledText>
         <div style={{ marginTop: "1%" }} className="stat-card-container">
-          <StatCard1 />
+          <StatCard1 data={location.state.apiData} />
         </div>
         <div style={{ marginTop: "2%"}} className="stat-card-container">
-          <StatCard2 />
+          <StatCard2  data={location.state.apiData} />
         </div>
         <div style={{ marginTop: "2%" }} className="stat-card-container">
           <StatCard3 />

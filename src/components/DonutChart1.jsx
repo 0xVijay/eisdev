@@ -38,13 +38,8 @@ import {
   Label,
 } from "recharts";
 
-const DonutChart1 = () => {
-  const data = [
-    { name: "Active 1", value: 65, bg: "#A264EF" },
-    { name: "Unknown", value: 45, bg: "#690CDB" },
-    { name: "Expired Cert", value: 34, bg: "#2E0067" },
-    { name: "Impersonation", value: 12, bg: "#DBDBDB" },
-  ];
+const DonutChart1 = (props) => {
+  const data = props.data;
 
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>

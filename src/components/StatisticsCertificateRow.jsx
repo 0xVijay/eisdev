@@ -9,7 +9,8 @@ import DonutChart1 from "./DonutChart1.jsx";
 import DonutChart2 from "./DonutChart2.jsx";
 import MUITable from "../MuiTableComponent.js";
 
-const StatisticsCertificateRow = () => {
+const StatisticsCertificateRow = (props) => {
+  const response = props.data.response;
   const data1 = [
     { name: "Active 1", value: 65, bg: "#A264EF" },
     { name: "Unknown", value: 45, bg: "#690CDB" },
@@ -42,16 +43,15 @@ const StatisticsCertificateRow = () => {
             >
               Certificate Space
             </StyledText>
-            <DonutChart1 />
+            <DonutChart1 data={response.certificateSpace} />
             <Row>
-              {data1.map((entry, index) => (
+              {response.certificateSpace.map((entry, index) => (
                 <Col lg={6} className="d-flex align-items-center gap-1">
                   <div
                     style={{
                       width: "7px",
                       height: "7px",
-                      borderRadius: "50%",
-                      backgroundColor: entry.bg,
+                      borderRadius: "50%"
                     }}
                   ></div>
                   <StyledText fontSize={"10px"}>{entry.name}</StyledText>
@@ -87,16 +87,15 @@ const StatisticsCertificateRow = () => {
             >
               DNS Records
             </StyledText>
-            <DonutChart2 />
+            <DonutChart2 data={response.dnsRecords} />
             <Row>
-              {data2.map((entry, index) => (
+              {response.dnsRecords.map((entry, index) => (
                 <Col lg={4} className="d-flex align-items-center gap-1">
                   <div
                     style={{
                       width: "7px",
                       height: "7px",
-                      borderRadius: "50%",
-                      backgroundColor: entry.bg,
+                      borderRadius: "50%"
                     }}
                   ></div>
                   <StyledText fontSize={"10px"}>{entry.name}</StyledText>

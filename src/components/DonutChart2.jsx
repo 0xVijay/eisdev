@@ -38,15 +38,8 @@ import {
   Label,
 } from "recharts";
 
-const DonutChart2 = () => {
-  const data = [
-    { name: "A", value: 101, bg: "#B57AFD" },
-    { name: "C Name", value: 10, bg: "#E3D5F3" },
-    { name: "SOA", value: 27, bg: "#33115E" },
-    { name: "AAA", value: 55, bg: "#CBCBCB" },
-    { name: "MX", value: 27, bg: "#690CDB" },
-    { name: "TXT", value: 8, bg: "#4B4B4B" },
-  ];
+const DonutChart2 = (props) => {
+  const data = props.data;
 
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
