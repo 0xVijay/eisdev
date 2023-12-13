@@ -68,17 +68,9 @@ const StatisticsCertificateRow = () => {
               flex: 1,
             }}
             height="260px"
-            className="d-flex flex-column justify-content-between p-0 bg-white"
+            className="dashboard-dns-card d-flex flex-column justify-content-between p-0 bg-white"
           >
-            {/* <StyledText
-              color={"#151D48"}
-              fontSize={"15px"}
-              margin={"0px 0px 18px 0px"}
-              className="p-2"
-            >
-              List of Vulnerability data table{" "}
-            </StyledText> */}
-            {/* <MUITable /> */}
+            <MUITable />
           </StyledCard>
         </Col>
         <Col lg={3} className="p-0">
