@@ -1,10 +1,10 @@
 // App.js
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Search from "./Search";
 import SearchResults from "./SearchResults";
 import { Helmet } from "react-helmet";
-import StatisticsWikipediaRow from "./components/StatisticsWikipediaRow";
+import CertSpace from './CertSpace'
 import Dashboard from "./Dashboard";
 
 const App = () => {
@@ -18,8 +18,10 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path="/" element={<Search />} />
-        <Route path="/search-results/:searchTerm" element={<SearchResults />} />
+        <Route path="/search-results/" element={<SearchResults />} />
         <Route path="/dashboard/" element={<Dashboard />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
+        <Route path="/certspace" element={<CertSpace/>} />
       </Routes>
     </Router>
   );

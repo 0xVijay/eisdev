@@ -5,6 +5,7 @@ import DonutChart1 from "./DonutChart1.jsx";
 import DonutChart2 from "./DonutChart2.jsx";
 import AreaChartComponent from "../AreaChartComponent.js";
 import DonutChart3 from "./DonutChart3.jsx";
+import '../Dashboard.css';
 
 const StatisticsTransparencyRow = () => {
   const data1 = [
@@ -24,11 +25,11 @@ const StatisticsTransparencyRow = () => {
       <Row className="">
         <Col lg={9} className="">
           <StyledCard
-            br={"8px 8px 0 0"}
+            br={"8px"}
             style={{
               flex: 1,
             }}
-            className="d-flex flex-column justify-content-between bg-white"
+            className="d-flex flex-column justify-content-between bg-white dash-cert-chart"
           >
             <StyledText
               color={"#151D48"}
@@ -39,10 +40,9 @@ const StatisticsTransparencyRow = () => {
               Certificate Transparency
             </StyledText>
             <AreaChartComponent />
-            {/* <MUITable /> */}
           </StyledCard>
         </Col>
-        <Col lg={3} className="p-0">
+        <Col lg={3} className="p-0 d-flex">
           <StyledCard
             style={{
               flex: 1,

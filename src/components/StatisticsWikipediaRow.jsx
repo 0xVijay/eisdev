@@ -12,6 +12,8 @@ import {
 } from "../assets";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
+import '../Dashboard.css'
+import { useNavigate } from 'react-router-dom';
 
 export const StyledText = styled.p`
   color: ${(props) =>
@@ -41,6 +43,9 @@ const cardData = [
   {
     value: "30",
     value2: "295",
+    domain1: "go0gle.com",
+    domain2: "wikipaedia.com",
+    domain3: "amezon.com",
     category: "Phishing Domain",
     gradientColor: "233, 12, 12",
     textColor: "#FFF",
@@ -51,6 +56,9 @@ const cardData = [
   {
     value: "3.7K",
     value2: "2.5k",
+    domain1: "go0gle2.com",
+    domain2: "wikipaedia2.com",
+    domain3: "amezon2.com",
     category: "Certificate Impersonation",
     gradientColor: "221, 202, 27",
     textColor: "#FFF",
@@ -61,6 +69,9 @@ const cardData = [
   {
     value: "8.7K",
     value2: "295",
+    domain1: "go0gle.com",
+    domain2: "wikipaedia.com",
+    domain3: "amezon.com",
     category: "DNS Vulnerability",
     gradientColor: "0, 191, 88",
     textColor: "#FFF",
@@ -93,8 +104,41 @@ const domainData = [
 ];
 
 const StatisticsWikipediaRow = () => {
+
+  const navigate = useNavigate();
+
+  const handleClick = (category) => {
+    switch(category) {
+      case 'Phishing Domain':
+        navigate('/phishing-domain');
+        break;
+      case 'Certificate Impersonation':
+        navigate('/certspace');
+        break;
+      case 'DNS Vulnerability':
+        navigate('/search-results');
+        break;
+      default:
+        // Optional: handle default case
+        break;
+    }
+  };
+
+    const getCurrentDateIST = () => {
+      const options = { 
+        timeZone: 'Asia/Kolkata', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        hour12: true 
+      };
+      return new Date().toLocaleDateString('en-US', options);
+    };
+
   return (
-    <Container>
+    <Container className="wiki-row-container">
       <Row className="bg-white p-1 d-flex border rounded py-3">
         <Col lg={4} className="d-flex">
           <StyledCard
@@ -113,10 +157,16 @@ const StatisticsWikipediaRow = () => {
                 alt="icon_wiki_lock"
                 className="img-fluid"
               />
-              <StyledText fontSize={"62px"} color={"#690CDB"}>
+              {/* <StyledText fontSize={"62px"} color={"#690CDB"}>
                 96.4
                 <span style={{ fontSize: "31px" }}>/100</span>
-              </StyledText>
+              </StyledText> */}
+              <LineSeparator height="100px"/>
+              <div className="dash-card-1-col-1">
+                  <div className="dash-card-1-col-1-txt-org">AppViewX Inc</div>
+                  <div className="dash-card-1-col-1-txt">priyeshkuarfaefafarframar@gmail.com</div>
+                  <div className="dash-card-1-col-1-txt">Anand Purushothaman</div>
+              </div>
             </div>
             <div className="d-flex align-items-center justify-content-start gap-2">
               <img
@@ -171,13 +221,17 @@ const StatisticsWikipediaRow = () => {
                       {data.category}
                     </StyledText>
                   </div>
-                  <StyledCard
+                  <StyledCard 
+
+                  className="gradient-cards"
+                  onClick={() => handleClick(data.category)}
                     bg={`linear-gradient(180deg, rgba(${data.gradientColor}, 0.00) 0%, rgb(${data.gradientColor}) 100%)`}
                     br="3px"
                     padding="20px"
                     textAlign="center"
                     height="180px"
                     style={{
+                      cursor:"pointer",
                       display: "flex",
                       flexBasis: "Column",
                       alignItems: "end",
@@ -189,12 +243,15 @@ const StatisticsWikipediaRow = () => {
                         fontSize={"10.5px"}
                         color={"#FFF"}
                         textAlign={"center"}
+                        fontWeight={"400"}
                       >
-                        {data.value}
+                        <p>{data.domain1}</p>
+                        <p>{data.domain1}</p>
+                        <p>{data.domain1}</p>
                       </StyledText>
-                      <StyledText fontSize={"5px"} color={"#FFF"}>
+                      {/* <StyledText fontSize={"5px"} color={"#FFF"}>
                         {data.category}
-                      </StyledText>
+                      </StyledText> */}
                     </div>
                   </StyledCard>
                 </div>
@@ -227,16 +284,16 @@ const StatisticsWikipediaRow = () => {
         </Col>
         <div className="d-flex justify-content-between mt-1">
           <StyledText fontSize={"12px"} color={"#737791"}>
-            Engagement Metrics &nbsp;
+            Date: &nbsp;
             <span style={{ color: "#151D48" }}>
-              December 10, 2023 at 03:16 PM
+              {getCurrentDateIST()}
             </span>
           </StyledText>
           <div className="d-flex align-items-center gap-3">
-            <StyledText fontSize={"12px"} color={"#151D48"}>
-              Pages/Visit&nbsp;
+            <StyledText fontSize={"12px"} color={"#151D48"} cursor={"pointer"} onClick={() => handleClick(cardData[1].category)}>
+              Certificate Space&nbsp;
               <span style={{ color: "#690CDB" }}>
-                7.9
+                {/* 7.9 */}
                 <img
                   src={icon_wiki_green_arrow}
                   alt="icon_wiki_green_arrow"
@@ -244,10 +301,10 @@ const StatisticsWikipediaRow = () => {
                 />
               </span>
             </StyledText>
-            <StyledText fontSize={"12px"} color={"#151D48"}>
-              Avg. Visit Duration &nbsp;
+            <StyledText fontSize={"12px"} color={"#151D48"} cursor={"pointer"} onClick={() => handleClick(cardData[2].category)}>
+              Domain Space &nbsp;
               <span style={{ color: "#690CDB" }}>
-                12.28
+                {/* 12.28 */}
                 <img
                   src={icon_wiki_red_arrow}
                   alt="icon_wiki_red_arrow"
@@ -255,10 +312,10 @@ const StatisticsWikipediaRow = () => {
                 />
               </span>
             </StyledText>
-            <StyledText fontSize={"12px"} color={"#151D48"}>
-              Bounce Rate &nbsp;
+            <StyledText fontSize={"12px"} color={"#151D48"} cursor={"pointer"} onClick={() => handleClick(cardData[0].category)}>
+              Phishing Monitoring &nbsp;
               <span style={{ color: "#690CDB" }}>
-                0.4
+                {/* 0.4 */}
                 <img
                   src={icon_wiki_green_arrow}
                   alt="icon_wiki_green_arrow"
@@ -266,13 +323,13 @@ const StatisticsWikipediaRow = () => {
                 />
               </span>
             </StyledText>
-            <StyledText
+            {/* <StyledText
               fontSize={"12px"}
               color={"#690CDB"}
               style={{ textDecoration: "underline" }}
             >
               See all
-            </StyledText>
+            </StyledText> */}
           </div>
         </div>
       </Row>

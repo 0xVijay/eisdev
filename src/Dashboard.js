@@ -6,7 +6,6 @@ import StatCard3 from "./components/StatisticsTransparencyRow.jsx";
 import Header from "./Header";
 import "./Dashboard.css";
 import "./SearchResults.css";
-import AreaChart from "./AreaChartComponent.js";
 
 const Dashboard = () => {
   return (
@@ -18,7 +17,7 @@ const Dashboard = () => {
         <div style={{ marginTop: "1%" }} className="stat-card-container">
           <StatCard1 />
         </div>
-        <div style={{ marginTop: "2%" }} className="stat-card-container">
+        <div style={{ marginTop: "2%"}} className="stat-card-container">
           <StatCard2 />
         </div>
         <div style={{ marginTop: "2%" }} className="stat-card-container">

@@ -48,3 +48,47 @@
     border-radius: 8px;
     background-color: #FFFFFF;
 }
+
+.chart-option-btn{
+    margin-top: -15px;
+}
+
+.dash-cert-chart{
+    margin-left: -1.5% !important;
+}
+
+.wiki-row-container{
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.wiki-row-container:hover{
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.dash-card-1-col-1{
+    width: 63%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    color: var(--Icon-Color, #690CDB);
+font-family: Inter;
+font-size: 13px;
+font-style: normal;
+line-height: normal;
+text-transform: capitalize;
+padding-right: 10px;
+}
+
+.dash-card-1-col-1-txt-org{
+    color: rgb(51, 17, 94);
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: none;
+}
+.dash-card-1-col-1-txt{
+    color: rgb(51, 17, 94);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: none;
+    margin-top: 10px;
+}

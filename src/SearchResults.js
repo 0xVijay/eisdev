@@ -43,8 +43,8 @@ const SearchResults = () => {
         if (value < 1000) {
             return value.toString();
         } else {
-            return (value / 1000).toFixed(1) + 'k';
-        }
+            return (value / 1000).toFixed(1) + 'K';
+        } 
     };
 
     const AnimatedCounter = ({ endValue }) => {
@@ -83,7 +83,6 @@ const SearchResults = () => {
             <div class="ti-container">
                 <Sidebar />
                 <Header />
-                {console.log(domainCount.metrics[0].title)}
                 <div class="ti-cards-container">
                     <div class="domain-header">
                         <p class="domain-header-txt">{domainCount.domainName}</p>
@@ -98,10 +97,12 @@ const SearchResults = () => {
                             <div class="card-value">
                                 <AnimatedCounter endValue={domainCount.parentDomainCount} duration={1000} />
                             </div>
-                            <div class="card-separator-line">
+                            <div class="card-separator-line-divided">
                             </div>
+                            <div className='subdomains-header'>
                             <div class="card-header">
                                 <p class="card-header-txt-divided">Sub Domains</p>
+                            </div>
                             </div>
                             <div class="card-value">
                                 <AnimatedCounter endValue={domainCount.subDomainCount} duration={1000} />
@@ -114,7 +115,7 @@ const SearchResults = () => {
                                 <div class="card-value">
                                     <AnimatedCounter endValue={domainCount.phishingDomainMetrics.potentialPhishingCount} duration={1000} />
                                 </div>
-                                <div class="card-separator-line">
+                                <div class="card-separator-line-divided">
                                 </div>
                                 <div className='divided-card-bottom-container'>
                                     <div className='divided-card-bottom-individual-container-1'>

@@ -60,23 +60,24 @@ const StatisticsCertificateRow = () => {
             </Row>
           </StyledCard>
         </Col>
-        <Col lg={6} className="">
+        <Col lg={6} border-0>
           <StyledCard
-            br={"8px 8px 0 0"}
+            border="0"
+            br={"8px"}
             style={{
               flex: 1,
             }}
+            height="260px"
             className="d-flex flex-column justify-content-between p-0 bg-white"
           >
-            <StyledText
+            {/* <StyledText
               color={"#151D48"}
               fontSize={"15px"}
               margin={"0px 0px 18px 0px"}
               className="p-2"
             >
               List of Vulnerability data table{" "}
-            </StyledText>
-            <hr className="m-0" />
+            </StyledText> */}
             {/* <MUITable /> */}
           </StyledCard>
         </Col>
