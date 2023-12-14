@@ -132,33 +132,7 @@ const MUITable = (props) => {
         .then((res) => res.json())
         .then(
           (result) => {
-            setTableData(
-              result.columns.map((d, idx) => {
-                if (d.name === "fixrecommendation") {
-                  d.options = {
-                    customBodyRender: (value, tableMeta, updateValue) => {
-                      return (
-                        <button
-                          class="badge text-bg-primary border border-0 p-2"
-                          onClick={() => {console.log(value, tableMeta)}}
-                        >
-                          Fix Recommendation
-                        </button>
-                      );
-                    },
-                  };
-                }
-                return d;
-              })
-            );
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            setApiError(true);
-            setApiErrorMessage("something went wrong, please try again!!!");
-            tempData.columns = tempData.columns.map((d, idx) => {
+            result.columns = result.columns.map((d, idx) => {
               if (d.name === "fixrecommendation") {
                 d.options = {
                   customBodyRender: (value, tableMeta, updateValue) => {
@@ -179,6 +153,14 @@ const MUITable = (props) => {
             });
 
             setTableData(tempData);
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            setApiError(true);
+            setApiErrorMessage("something went wrong, please try again!!!");
+            
             console.log(tempData);
             setLoading(false);
           }
@@ -207,16 +189,13 @@ const MUITable = (props) => {
         .then((res) => res.json())
         .then(
           (result) => {
-  
+            setModalData(mdData);//title, recomdesc
+            setDialogOpen(true);
           },
           (error) => {
             setApiError(true);
             setApiErrorMessage("something went wrong, please try again!!!");
             setLoading(false);
-
-            setModalData(mdData);
-
-            setDialogOpen(true);
           }
         );
     } catch (error) {
