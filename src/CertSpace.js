@@ -37,7 +37,7 @@ const domainCount = {
   ],
 };
 
-const SearchResults = () => {
+const CertSpace = () => {
   const formatToK = (value) => {
     if (value < 1000) {
       return value.toString();
@@ -112,7 +112,7 @@ const SearchResults = () => {
                 />
               </div>
             </div>
-            <div class="content-card-divided">
+            {/* <div class="content-card-divided">
               <div class="card-header">
                 <p class="card-header-txt-divided">Potential Phishing</p>
               </div>
@@ -159,7 +159,7 @@ const SearchResults = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div class="content-card">
               <div class="card-header">
                 <p
@@ -179,7 +179,7 @@ const SearchResults = () => {
             </div>
             <div class="content-card">
               <div class="card-header">
-                <p class="card-header-txt">{domainCount.metrics[1].title}</p>
+                <p style={{ marginTop: "22px", marginBottom: "20px" }}  class="card-header-txt">{domainCount.metrics[1].title}</p>
               </div>
               <div class="card-separator-line"></div>
               <div class="card-value">
@@ -191,7 +191,7 @@ const SearchResults = () => {
             </div>
             <div class="content-card">
               <div class="card-header">
-                <p class="card-header-txt">{domainCount.metrics[2].title}</p>
+                <p  style={{ marginTop: "22px", marginBottom: "20px" }}  class="card-header-txt">{domainCount.metrics[2].title}</p>
               </div>
               <div class="card-separator-line"></div>
               <div class="card-value">
@@ -223,4 +223,4 @@ const SearchResults = () => {
   );
 };
 
-export default SearchResults;
+export default CertSpace;

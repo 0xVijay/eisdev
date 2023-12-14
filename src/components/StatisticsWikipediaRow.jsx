@@ -42,8 +42,8 @@ export const LineSeparator = styled.div`
 
 const cardData = [
   {
-    value: "30",
-    value2: "295",
+    value: "30323",
+    value2: "2953",
     domain1: "go0gle.com",
     domain2: "wikipaedia.com",
     domain3: "amezon.com",
@@ -55,8 +55,8 @@ const cardData = [
     width: "30%",
   },
   {
-    value: "3.7K",
-    value2: "2.5k",
+    value: "34343",
+    value2: "22323",
     domain1: "go0gle2.com",
     domain2: "wikipaedia2.com",
     domain3: "amezon2.com",
@@ -68,8 +68,8 @@ const cardData = [
     width: "40%",
   },
   {
-    value: "8.7K",
-    value2: "295",
+    value: "8322",
+    value2: "23232",
     domain1: "go0gle.com",
     domain2: "wikipaedia.com",
     domain3: "amezon.com",
@@ -83,22 +83,22 @@ const cardData = [
 ];
 const domainData = [
   {
-    title: "Total Domain",
+    title: "Total ASM Domains",
     value: "17",
     img: icon_wiki_domain,
   },
   {
-    title: "Total Cost",
+    title: "Total Certificates",
     value: "1823",
     img: icon_wiki_cost,
   },
   {
-    title: "Total Register",
+    title: "Total Registrars",
     value: "25",
     img: icon_wiki_register,
   },
   {
-    title: "Total Authority",
+    title: "Total CAs",
     value: "23",
     img: icon_wiki_authority,
   },
@@ -109,9 +109,9 @@ const StatisticsWikipediaRow = (props) => {
   const navigate = useNavigate();
 
   const handleClick = (category) => {
-    switch (category) {
-      case "Domain Space":
-        navigate("/phishing-domain", {response});
+    switch(category) {
+      case 'Phishing Domain':
+        navigate('/phishing-monitoring');
         break;
       case "Certificate Space":
         navigate("/certspace", {response});
@@ -125,17 +125,25 @@ const StatisticsWikipediaRow = (props) => {
     }
   };
 
-  const getCurrentDateIST = () => {
-    const options = {
-      timeZone: "Asia/Kolkata",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
+    const getCurrentDateIST = () => {
+      const options = { 
+        timeZone: 'Asia/Kolkata', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        hour12: true 
+      };
+      return new Date().toLocaleDateString('en-US', options);
     };
-    return new Date().toLocaleDateString("en-US", options);
+
+    const formatToK = (value) => {
+      if (value < 1000) {
+          return value.toString();
+      } else {
+          return (value / 1000).toFixed(1) + 'K';
+      }
   };
 
   return (
@@ -275,7 +283,7 @@ const StatisticsWikipediaRow = (props) => {
                     {data.title}
                   </StyledText>
                   <StyledText color="#151D48" fontSize={"35px"}>
-                    {data.value}
+                    {formatToK(data.value)}
                   </StyledText>
                   <div className="d-flex justify-content-end">
                     <img

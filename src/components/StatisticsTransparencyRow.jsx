@@ -12,6 +12,14 @@ const StatisticsTransparencyRow = (props) => {
   const response = props.data.response;
  const colors = generateColor('#690CDB', '#b57afd', 10);
 
+ const formatToK = (value) => {
+  if (value < 1000) {
+      return value.toString();
+  } else {
+      return (value / 1000).toFixed(1) + 'K';
+  }
+};
+
   return (
     <Container>
       <Row className="">
@@ -73,7 +81,7 @@ const StatisticsTransparencyRow = (props) => {
                     ></div>
                     <StyledText fontSize={"7px"}>{entry.name}</StyledText>
                   </div>
-                  <StyledText fontSize={"7px"}>{entry.value}</StyledText>
+                  <StyledText fontSize={"7px"}>{formatToK(entry.value)}</StyledText>
                 </Col>
               ))}
             </Row>

@@ -41,6 +41,7 @@ import {
 const DonutChart2 = (props) => {
   const data = props.data;
   const colors = props.colors;
+  const totalDNS = 13434;
 
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
@@ -60,7 +61,7 @@ const DonutChart2 = (props) => {
               <Cell key={`cell-${index}`} fill={colors[index]} />
             ))}
             <Label
-              value="246"
+              value={totalDNS}
               position="center"
               dy={-5}
               fontSize={16}
@@ -68,7 +69,7 @@ const DonutChart2 = (props) => {
               fill="#151D48"
             />
             <Label
-              value="Total"
+              value="Total DNS Records"
               position="center"
               dy={10}
               fontSize={8}

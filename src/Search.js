@@ -120,7 +120,7 @@ const SearchContainer = () => {
         setisApiError(false);
         const requestOptions = {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", "username": "admin", "password":"AppViewX@1234" },
           body: JSON.stringify({
             payload: {
               domainName: searchTerm,
@@ -128,7 +128,7 @@ const SearchContainer = () => {
           }),
         };
         fetch(
-          "https://pe-eis-centos-node02.lab.appviewx.net:31443/avxapi/consolidated-metrics?gwsource=api",
+          "http://pe-eis-centos-node02.lab.appviewx.net:30001/avxapi/consolidated-metrics?gwsource=api",
           requestOptions
         )
           .then((res) => res.json())

@@ -38,9 +38,18 @@ import {
   Label,
 } from "recharts";
 
+const formatToK = (value) => {
+  if (value < 1000) {
+      return value.toString();
+  } else {
+      return (value / 1000).toFixed(1) + 'K';
+  }
+};
+
 const DonutChart1 = (props) => {
   const data = props.data;
   const colors = props.colors;
+  const totalCerts = 12324;
   return (
     <div style={{ width: "100%", height: "180px", position: "relative" }}>
       <ResponsiveContainer>
@@ -59,7 +68,7 @@ const DonutChart1 = (props) => {
               <Cell key={`cell-${index}`} fill={colors[index]} />
             ))}
             <Label
-              value="2548"
+              value={formatToK(totalCerts)}
               position="center"
               dy={-5}
               fontSize={16}
@@ -67,7 +76,7 @@ const DonutChart1 = (props) => {
               fill="#151D48"
             />
             <Label
-              value="Visitors"
+              value="Certificates"
               position="center"
               dy={10}
               fontSize={8}
