@@ -109,3 +109,88 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+{
+    state: {
+        apiData: {
+        response: {
+            status: "success",
+            domainName: searchTerm,
+            domainInfo: {
+            orgName: "AppViewX Inc",
+            email: "priyeshkuarfaefafarframar@gmail.com",
+            ownerName: "Anand Purushothaman",
+            },
+            card: [
+            {
+                name: "Phishing Domain",
+                count: 30,
+                values: ["go0gle.com", "github.com", "go0gle.com"],
+            },
+            {
+                name: "Certificate Impersonation",
+                count: 30,
+                values: ["go0gle2.com", "go0gle2.com", "go0gle2.com"],
+            },
+            {
+                name: "DNS Vulnerability",
+                count: 30,
+                values: ["go0gle.com", "go0gle.com", "go0gle.com"],
+            }
+            ],
+            domainData: [
+                {
+                title: "Total Domain",
+                value: "17",
+                },
+                {
+                title: "Total Cost",
+                value: "1823",
+                },
+                {
+                title: "Total Register",
+                value: "35",
+                },
+                {
+                title: "Total Authority",
+                value: "23",
+                },
+            ],
+            certificateSpace: [
+            { name: "Unknown", value: 45 },
+            { name: "Expired Cert", value: 34 },
+            { name: "Impersonation", value: 12 },
+            ],
+            dnsRecords: [
+            { name: "A", value: 101, bg: "#B57AFD" },
+            { name: "C Name", value: 10, bg: "#E3D5F3" },
+            { name: "SOA", value: 27, bg: "#33115E" },
+            { name: "AAA", value: 55, bg: "#CBCBCB" },
+            { name: "MX", value: 27, bg: "#690CDB" },
+            { name: "TXT", value: 8, bg: "#4B4B4B" },
+            ],
+            keySummary: [
+            { name: "A", value: 101, bg: "#690CDB" },
+            { name: "C Name", value: 10, bg: "#B57AFD" },
+            { name: "SOA", value: 27, bg: "#737791" },
+            ],
+            certificateTransperancy: [
+            {
+                name: "GoDaddy.com",
+                Issue: 10,
+                Expiry: 48,
+                DNS: 75,
+            },
+            {
+                name: "Entrust.Inc",
+                Issue: 65,
+                Expiry: 56,
+                DNS: 23,
+            },
+            ],
+        }
+        },
+    },
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import {
   LineSeparator,
@@ -9,11 +9,12 @@ import DonutChart1 from "./DonutChart1.jsx";
 import DonutChart2 from "./DonutChart2.jsx";
 import MUITable from "../MuiTableComponent.js";
 import { generateColor } from "../color";
+import { useNavigate } from "react-router-dom";
 
 const StatisticsCertificateRow = (props) => {
   const response = props.data.response;
- const colors = generateColor('#690CDB', '#b57afd', 10);
-
+  const colors = generateColor("#690CDB", "#b57afd", 10);
+  
   return (
     <Container>
       <Row className="">
@@ -40,7 +41,7 @@ const StatisticsCertificateRow = (props) => {
                       width: "7px",
                       height: "7px",
                       borderRadius: "50%",
-                      backgroundColor: colors[index]
+                      backgroundColor: colors[index],
                     }}
                   ></div>
                   <StyledText fontSize={"10px"}>{entry.name}</StyledText>
@@ -59,7 +60,7 @@ const StatisticsCertificateRow = (props) => {
             height="260px"
             className="dashboard-dns-card d-flex flex-column justify-content-between p-0 bg-white"
           >
-            <MUITable />
+            <MUITable domainName={response.domainName} pageName="dashboard" />
           </StyledCard>
         </Col>
         <Col lg={3} className="p-0">
@@ -85,7 +86,7 @@ const StatisticsCertificateRow = (props) => {
                       width: "7px",
                       height: "7px",
                       borderRadius: "50%",
-                      backgroundColor: colors[index]
+                      backgroundColor: colors[index],
                     }}
                   ></div>
                   <StyledText fontSize={"10px"}>{entry.name}</StyledText>
